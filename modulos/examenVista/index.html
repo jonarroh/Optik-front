@@ -1,0 +1,207 @@
+<main>
+	<div class="center has-text-light">
+		<h1>Examén de vista</h1>
+	</div>
+
+	<div class="columns">
+		<div class="column">
+			<div class="field">
+				<label class="label has-text-white">Buscar Empleado</label>
+				<input
+					type="text"
+					class="input"
+					id="buscareEmpleado"
+					name="searchFilter"
+					placeholder="Buscar Empleado"
+					onkeyup="mev.filterEmpleado(this.value)"
+				/>
+			</div>
+		</div>
+		<div class="column">
+			<div class="field">
+				<label class="label has-text-white"
+					>Selecciona el empleado</label
+				>
+				<div class="select is-fullwidth">
+					<select id="selectEmpleado" class="select">
+						<option value="default">Empleado que atiende</option>
+					</select>
+				</div>
+			</div>
+		</div>
+    <div class="column">
+			<div class="field">
+				<label class="label has-text-white">Clave</label>
+				<input
+					type="text"
+					id="txtClave"
+					class="input"
+					placeholder="Clave"
+				/>
+			</div>
+		</div>
+	</div>
+
+	<div class="columns">
+		
+    <div class="column">
+      <div class="field">
+        <label class="label has-text-white">Buscar cliente</label>
+        <input
+					type="text"
+					id="buscarCliente"
+					name="searchFilter"
+					placeholder="Buscar Cliente"
+					onkeyup="mev.filterCliente(this.value)"
+					class="input"
+				/>
+      </div>
+    </div>
+    <div class="column">
+      <div class="field">
+        <label class="label has-text-white">Selecciona el cliente</label>
+        <div class="select is-fullwidth">
+          <select id="selectCliente">
+            <option value="default">Cliente atendido</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="columns">
+    <div class="column">
+      <div class="field">
+        <label class="label has-text-white">Buscar graduación</label>
+        <input
+					type="text"
+					id="buscarGraduacion"
+					name="searchFilter"
+					placeholder="Buscar Graduacion"
+					onkeyup="mev.filterGraduacion(this.value)"
+					class="input"
+				/>
+      </div>
+    </div>
+    <div class="column">
+      <div class="field">
+        <label class="label has-text-white">Selecciona una graduación</label>
+        <div class="select is-fullwidth">
+          <select id="selectGraduacion" >
+            <option value="default">Graduacion seleccionada</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="columns">
+    <div class="column" id="guardar">
+      <div class="field">
+        <button
+        type="button"
+        onclick="mev.insertarExamenVista()"
+        class="button is-success has-icon-left"
+      >
+      <span class="icon is-left pt-2"><icon-save></icon-save></span>
+        <span>Ingresar Examen Vista</span>
+      </button>
+      </div>
+    </div>
+    <div class="column is-hidden" id="actualizar">
+      <div class="field">
+        <button
+        type="button"
+        onclick="mev.actualizarExamenVista()"
+        class="button is-primary has-icon-left "
+      >
+      <span class="icon is-left pt-2"><icon-update></icon-update></span>
+        <span>Actualizar examen vista</span>
+      </button>
+      </div>
+    </div>
+    <div class="column">
+      <div class="field">
+        <button
+						type="button"
+						onclick="mev.limpiar()"
+        class="button is-warning has-icon-left "
+      >
+      <span class="icon is-left pt-2"><icon-clean></icon-clean></span>
+        <span>Limpiar formulario</span>
+      </button>
+    </div>
+  </div>
+
+    <div class="column">
+      <div class="field">
+        <button
+						type="button"
+						onclick="mev.getAllExamenVista()"
+        class="button is-primary has-icon-left "
+      >
+      <span class="icon is-left pt-2"><icon-eye></icon-eye></span>
+        <span>Lista de examenes de vista</span>
+      </div>
+    </div>
+    <div class="column">
+      <div class="field">
+        <button
+						type="button"
+						onclick="mev.getAllExamenVistaInactivo()"
+        class="button is-link has-icon-left "
+      >
+      <span class="icon is-left pt-2"><icon-eye></icon-eye></span>
+        <span>Lista de examenes de vista inactivos</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="card mt-5">
+		<header class="card-header flex p-2">
+			<h3 class="card-header-title">Tabla de accesorios</h3>
+      <a
+                    onclick="mev.cerrarTabla()"
+                    class="btn btn-outline-danger"
+                    >Cerrar</a
+                  >
+			<div class="control">
+        <input
+					type="text"
+					id="txtbuscarExamenBusca"
+					onkeyup="mev.buscarTabla()"
+					placeholder="Buscar"
+					class="input"
+				/>
+			</div>
+			<button id="buscarP" class="button is-dark p-3 has-icons-left" type="button"
+      onclick="mev.buscarTabla()" 
+      >
+			<span class="icon is-left pt-2">
+        <icon-search></icon-search>
+      </span>
+       
+      </button>
+		</header>
+
+		<div class="card-content">
+			<div class="has-text-light scroll content">
+				<table class="table is-striped is-hoverable is-fullwidth" id="tbAllEv">
+            <thead>
+              <tr>
+                <td>Empleado</td>
+                <td>Clave</td>
+                <td>Cliente</td>
+                <td>Graduacion</td>
+                <td>Ver
+                </td>
+                <td>Estado</td>
+              </tr>
+            </thead>
+            <tbody id="tbExamenVista"></tbody>
+          </table>
+			</div>
+		</div>
+	</div>
+    
+				<input type="hidden" id="txtidExamenVista" />			
+</main>

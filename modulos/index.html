@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Optik</title>
+		<link rel="icon" href="../public/logo.svg" />
+		<meta charset="UTF-8" />
+		<link rel="stylesheet" href="../css/bulma.min.css" />
+		<link rel="stylesheet" href="../css/style.css" />
+		<link
+			rel="stylesheet"
+			href="../css/sweetalert2/sweetalert2.min.css"
+		/>
+		<link rel="stylesheet" href="../css/nprogress.css" />
+
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+	</head>
+	<body class="has-background-info">
+		<header>
+			<nav
+				class="navbar is-flex is-justify-content-space-between"
+				role="navigation"
+				aria-label="main navigation"
+			>
+				<div class="navbar-brand">
+					<a
+						class="navbar-item mt-2"
+						id="inicio"
+						onclick="cambiarHome()"
+					>
+						<span class="qua1">QUA</span
+						><span class="lite1">lite</span>
+					</a>
+
+					<a
+						role="button"
+						class="navbar-burger"
+						aria-label="menu"
+						aria-expanded="false"
+						data-target="navbarBasicExample"
+					>
+						<span aria-hidden="true"></span>
+						<span aria-hidden="true"></span>
+						<span aria-hidden="true"></span>
+					</a>
+				</div>
+				<div id="navbarBasicExample" class="navbar-menu">
+					<div class="navbar-start has-background-white">
+						<a class="navbar-item has-icons-left" id="empleado">
+							<span class="icon is-left pt-2">
+								<icon-person></icon-person>
+							</span>
+							<span>Empleado</span>
+						</a>
+						<a class="navbar-item has-icons-left" id="cliente">
+							<span class="icon is-left pt-2">
+								<icon-person></icon-person> </span
+							><span>Cliente</span>
+						</a>
+
+						<div class="navbar-item has-dropdown is-hoverable">
+							<a class="navbar-link" class="has-icons-left">
+								<span class="icon is-left pt-2">
+									<icon-material></icon-material>
+								</span>
+								<span>Productos</span>
+							</a>
+
+							<div class="navbar-dropdown">
+								<a class="navbar-item" id="armazon"> Armazones </a>
+								<hr class="navbar-divider" />
+								<a class="navbar-item" id="accesorio"> Accesorios </a>
+								<hr class="navbar-divider" />
+								<a class="navbar-item" id="lenteContacto">
+									Lentes de Contacto
+								</a>
+								<hr class="navbar-divider" />
+								<a class="navbar-item"> Soluciones </a>
+								<hr class="navbar-divider" />
+								<a class="navbar-item" id="material"> Material </a>
+							</div>
+						</div>
+						<a class="navbar-item has-icons-left" id="graduacion">
+							<span class="icon is-left pt-2">
+								<icon-eye></icon-eye>
+							</span>
+							<span>Graduacion Lentes</span>
+						</a>
+						<a class="navbar-item has-icon-left" id="examenVista">
+							<span class="icon -is-left pt-2">
+								<icon-test></icon-test>
+							</span>
+							<span>Examen de Vista</span>
+						</a>
+						<a class="navbar-item" id="compraProducto">
+							<span class="icon -is-left pt-2">
+								<buy-icon></buy-icon>
+							</span>
+							<span>Compra</span>
+						</a>
+						<div class="navbar-item has-dropdown is-hoverable">
+							<a class="navbar-link" class="has-icons-left">
+								<span class="icon is-left pt-2">
+									<buy-icon></buy-icon>
+								</span>
+								<span>Ventas</span>
+							</a>
+
+							<div class="navbar-dropdown">
+								<a class="navbar-item" id="venta"> Venta Productos</a>
+								<hr class="navbar-divider" />
+								<a class="navbar-item" id="ventaL">
+									Venta Lentes de Contacto
+								</a>
+								<hr class="navbar-divider" />
+								<a class="navbar-item" id="ventaVC"> Venta Lentes </a>
+								<hr class="navbar-divider" />
+							</div>
+						</div>
+						<a
+							class="navbar-item"
+							onclick="cerrarSesion()"
+							class="has-icons-left"
+						>
+							<span class="icon is-left pt-2">
+								<icon-exit></icon-exit>
+							</span>
+							<span>Cerrar sesión</span>
+						</a>
+					</div>
+				</div>
+			</nav>
+		</header>
+		<div
+			id="app"
+			style="padding-left: 20px; padding-right: 20px"
+		></div>
+		<script src="../js/nprogress.js"></script>
+		<script src="../css/sweetalert2/sweetalert2.all.min.js"></script>
+		<script src="../components/icon-person.js"></script>
+		<script src="main.js"></script>
+	</body>
+</html>

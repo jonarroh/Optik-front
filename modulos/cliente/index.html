@@ -1,0 +1,369 @@
+<main>
+	<div class="center has-text-light">
+		<h1>Gestión de Clientes</h1>
+	</div>
+	<div class="columns is-hidden">
+		<div class="column">
+			<div class="field">
+				<label class="label has-text-white">ID Cliente:</label>
+				<input type="text" readonly id="txtidCliente" class="form" />
+			</div>
+		</div>
+		<div class="column is-hidden">
+			<div class="field">
+				<label class="label has-text-white">ID Persona:</label><br />
+				<input type="text" readonly id="txtidPersona" class="input" />
+			</div>
+		</div>
+		<div class="column is is-hidden">
+			<div class="field">
+				<label class="form-label">C&oacute;digo &Uacute;nico:</label
+				><br />
+				<input
+					type="text"
+					readonly="»readonly»"
+					id="txtnumeroUn"
+					class="form-control"
+				/>
+			</div>
+		</div>
+	</div>
+	<div class="columns">
+		<div class="column">
+			<div class="field">
+				<label class="label has-text-white">Nombre</label>
+				<input
+					type="text"
+					class="input"
+					placeholder="Nombre(s)"
+					id="txtnombre"
+				/>
+			</div>
+		</div>
+
+		<div class="column">
+			<div class="field">
+				<label class="label has-text-white">Apellido Paterno</label>
+				<input
+					type="text"
+					class="input"
+					placeholder="Apellido Paterno"
+					id="txtapePaterno"
+				/>
+			</div>
+		</div>
+
+		<div class="column">
+			<div class="field">
+				<label class="label has-text-white">Apellido Materno</label>
+				<input
+					type="text"
+					class="input"
+					placeholder="Apellido Materno"
+					id="txtapeMaterno"
+				/>
+			</div>
+		</div>
+
+		<div class="column">
+			<div class="field">
+				<label class="label has-text-white">G&eacute;nero</label>
+				<div class="select is-fullwidth">
+					<select id="slcgenero">
+						<option value="M" selected>Masculino</option>
+						<option value="F">Femenino</option>
+						<option value="O">Otro</option>
+					</select>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="columns">
+		<div class="column">
+			<div class="field">
+				<label class="label has-text-white"
+					>Fecha de Nacimiento</label
+				>
+				<input type="date" class="input" id="txtfechaNacimiento" />
+			</div>
+		</div>
+
+		<div class="column">
+			<div class="field">
+				<label class="label has-text-white">Ciudad</label>
+				<input
+					type="text"
+					class="input"
+					placeholder="Ciudad"
+					id="txtciudad"
+				/>
+			</div>
+		</div>
+
+		<div class="column">
+			<div class="field">
+				<label class="label has-text-white">Estado</label>
+				<div class="select is-fullwidth">
+					<select id="txtestado">
+						<!-- estados de México -->
+						<option value="Aguascalientes">Aguascalientes</option>
+						<option value="Baja California">Baja California</option>
+						<option value="Baja California Sur">
+							Baja California Sur
+						</option>
+						<option value="Campeche">Campeche</option>
+						<option value="Chiapas">Chiapas</option>
+						<option value="Chihuahua">Chihuahua</option>
+						<option value="Ciudad de México">Ciudad de México</option>
+						<option value="Coahuila">Coahuila</option>
+						<option value="Colima">Colima</option>
+						<option value="Durango">Durango</option>
+						<option value="Estado de México">Estado de México</option>
+						<option value="Guanajuato">Guanajuato</option>
+						<option value="Guerrero">Guerrero</option>
+						<option value="Hidalgo">Hidalgo</option>
+						<option value="Jalisco">Jalisco</option>
+						<option value="Michoacan">Michoacan</option>
+						<option value="Morelos">Morelos</option>
+						<option value="Nayarit">Nayarit</option>
+						<option value="Nuevo León">Nuevo León</option>
+						<option value="Oaxaca">Oaxaca</option>
+						<option value="Puebla">Puebla</option>
+						<option value="Queretaro">Queretaro</option>
+						<option value="Quintana Roo">Quintana Roo</option>
+						<option value="San Luis Potosí">San Luis Potosí</option>
+						<option value="Sinaloa">Sinaloa</option>
+						<option value="Sonora">Sonora</option>
+						<option value="Tabasco">Tabasco</option>
+						<option value="Tamaulipas">Tamaulipas</option>
+						<option value="Tlaxcala">Tlaxcala</option>
+						<option value="Veracruz">Veracruz</option>
+						<option value="Yucatan">Yucatan</option>
+						<option value="Zacatecas">Zacatecas</option>
+					</select>
+				</div>
+			</div>
+		</div>
+
+		<div class="column">
+			<div class="field">
+				<label class="label has-text-white">Colonia</label>
+				<input
+					type="text"
+					class="input"
+					placeholder="Colonia"
+					aria-label="Colonia"
+					id="txtcolonia"
+				/>
+			</div>
+		</div>
+	</div>
+
+	<div class="columns">
+		<div class="column">
+			<div class="field">
+				<label class="label has-text-white">Calle</label>
+				<input
+					type="text"
+					class="input"
+					placeholder="Calle"
+					aria-label="Calle"
+					id="txtcalle"
+				/>
+			</div>
+		</div>
+
+		<div class="column">
+			<div class="field">
+				<label class="label has-text-white"
+					>Numero Inferior Casa</label
+				>
+				<input
+					type="text"
+					class="input"
+					placeholder="Numero Inferior Casa"
+					aria-label="Numero Inferior Casa"
+					id="txtnumero"
+				/>
+			</div>
+		</div>
+		<div class="column">
+			<div class="field">
+				<label class="label has-text-white"
+					>C&oacute;digo Postal</label
+				>
+				<input
+					type="text"
+					class="input"
+					placeholder="Codigo Postal"
+					aria-label="Codigo Postal"
+					id="txtcp"
+				/>
+			</div>
+		</div>
+
+		<div class="column">
+			<div class="field">
+				<label class="label has-text-white"
+					>Tel&eacute;fono Casa</label
+				>
+				<input
+					type="text"
+					class="input"
+					placeholder="Telefono Casa"
+					aria-label="Telefono Casa"
+					id="txttelCasa"
+				/>
+			</div>
+		</div>
+	</div>
+
+	<div class="columns">
+		<div class="column">
+			<div class="field">
+				<label class="label has-text-white"
+					>Tel&eacute;fono Movil</label
+				>
+				<input
+					type="text"
+					class="input"
+					placeholder="Telefono Movil"
+					aria-label="Telefono Movil"
+					id="txttelMovil"
+				/>
+			</div>
+		</div>
+
+		<div class="column">
+			<div class="field">
+				<label class="label has-text-white">Correo</label>
+				<input
+					type="email"
+					class="input"
+					placeholder="name@example.com"
+					aria-label="Correo"
+					id="txtemail"
+				/>
+			</div>
+		</div>
+	</div>
+
+	<div class="columns">
+		<div class="column" id="guardar">
+			<div class="field">
+				<button
+					type="button"
+					onclick="mc.insertar()"
+					class="button is-success has-icons-left"
+				>
+					<span class="icon is-left pt-2">
+						<icon-save></icon-save>
+					</span>
+					<span>Guardar</span>
+				</button>
+			</div>
+		</div>
+
+		<div class="column is-hidden" id="actualizar">
+			<div class="field">
+				<button
+					type="button"
+					onclick="mc.actualizar();"
+					class="button is-primary has-icons-left"
+				>
+					<span class="icon is-left pt-2">
+						<icon-update></icon-update>
+					</span>
+					<span>Actualizar</span>
+				</button>
+			</div>
+		</div>
+
+		<div class="column">
+			<div class="field">
+				<button
+					type="button"
+					onclick="mc.limpiar();"
+					class="button is-warning has-icons-left"
+				>
+					<span class="icon is-left pt-2">
+						<icon-clean></icon-clean>
+					</span>
+					<span>Limpiar</span>
+				</button>
+			</div>
+		</div>
+
+		<div class="column">
+			<div class="field">
+				<button
+					type="button"
+					onclick="mc.getAll();"
+					class="button is-primary has-icons-left"
+					id="gg-trash"
+				>
+					<span class="icon is-left pt-2">
+						<icon-eye></icon-eye>
+					</span>
+					<span>Ver empleados</span>
+				</button>
+			</div>
+		</div>
+		<div class="column">
+			<div class="field">
+				<button
+					type="button"
+					onclick="mc.getAllInactivos();"
+					class="button is-link has-icons-left"
+				>
+					<span class="icon is-left pt-2">
+						<icon-eye></icon-eye>
+					</span>
+					<span>Ver empleados inactivos</span>
+				</button>
+			</div>
+		</div>
+	</div>
+
+	<div class="card">
+		<header class="card-header flex p-2">
+			<h3 class="card-header-title">Tabla de empleados</h3>
+			<div class="control">
+				<input
+					type="text"
+					id="button-addon2"
+					placeholder="buscar"
+					class="input"
+				/>
+			</div>
+			<button
+				id="buscarP"
+				class="button is-dark p-3 has-icons-left"
+				type="button"
+				onclick="mc.buscar();"
+			>
+				<span class="icon is-left pt-2">
+					<icon-search></icon-search>
+				</span>
+			</button>
+		</header>
+
+		<div class="card-content">
+			<div class="has-text-light scroll content">
+				<table class="table is-striped is-hoverable is-fullwidth">
+					<thead>
+						<tr id="tr">
+							<th>Nombre</th>
+							<th>Dirección</th>
+							<th>Correo</th>
+							<th>Ver</th>
+							<th>Estatus</th>
+						</tr>
+					</thead>
+					<tbody class="tbCliente"></tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</main>

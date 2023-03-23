@@ -1,0 +1,287 @@
+<main class="pantalla">
+	<div class="center has-text-light">
+		<h1>Gestión de Lentes de contacto</h1>
+	</div>
+	<form id="form">
+    
+		<div class="columns">
+      <div class="column" align="center">
+        <div class="image is-128x128">
+          <img src="../public/default.png" alt="image" id="imagen">
+        </div>
+      </div>
+
+			<div class="column">
+				<div class="field">
+					<label class="label has-text-light"
+						>Nombre</label
+					>
+					<div class="control">
+						<input
+							class="input"
+							type="text"
+							placeholder="Nombre"
+							name="nombre"
+							id="nombre"
+						/>
+						<p
+							class="help is-danger"
+							id="nombreP"
+							style="display: none"
+						>
+							El nombre es incorrecto
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="column">
+				<div class="field">
+					<label class="label has-text-light">Marca</label>
+					<div class="control">
+						<input
+							class="input"
+							type="text"
+							placeholder="Marca"
+							name="marca"
+							id="marca"
+						/>
+					</div>
+					<p class="help is-danger" id="marcaP" style="display: none">
+						La marca es incorrecto
+					</p>
+				</div>
+			</div>
+
+			<div class="column">
+				<div class="field">
+					<label class="label has-text-light">Precio de compra</label>
+					<div class="control">
+						<input
+							class="input"
+							type="text"
+							placeholder="Precio de compra"
+							name="precioCompra"
+							id="precioCompra"
+						/>
+					</div>
+					<p
+						class="help is-danger"
+						id="precioCompraP"
+						style="display: none"
+					>
+						El tipo es incorrecto
+					</p>
+				</div>
+      </div>
+
+				
+			</div>
+
+      <div class="columns">
+        <div class="column">
+          <div class="field">
+            <label class="label has-text-light">Precio de venta</label>
+            <div class="control">
+              <input
+                class="input"
+                type="text"
+                placeholder="Precio de venta"
+                name="precioVenta"
+                id="precioVenta"
+              />
+            </div>
+            <p
+              class="help is-danger"
+              id="precioVentaP"
+              style="display: none"
+            >
+              El tipo es incorrecto
+            </p>
+          </div>
+        </div>
+        <div class="column">
+          <div class="field">
+            <label class="label has-text-light">Existencias</label>
+            <div class="control">
+              <input
+                class="input"
+                type="number"
+                placeholder="Existencias"
+                name="existencias"
+                id="existencias"
+              />
+            </div>
+            <p
+              class="help is-danger"
+              id="existenciasP"
+              style="display: none"
+            >
+              El tipo es incorrecto
+            </p>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="field">
+            <label class="label has-text-light">Keratometria</label>
+            <div class="control">
+              <input
+                class="input"
+                type="number"
+                placeholder="Keratometria"
+                name="keratometria"
+                id="keratometria"
+              />
+            </div>
+            <p
+              class="help is-danger"
+              id="keratometriaP"
+              style="display: none"
+            >
+              El tipo es incorrecto
+            </p>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="field">
+            <label class="label has-text-light">Fotografia</label>
+            <div class="control">
+              <input
+                class="input"
+                type="file"
+                placeholder="Fotografia"
+                name="fotografia"
+                id="fotografia"
+                accept=".jpg, .jpeg, .png"
+                onchange="ml.cambiarFoto()"
+              />
+            </div>
+            <p
+              class="help is-danger"
+              id="fotografiaP"
+              style="display: none"
+            >
+              El tipo es incorrecto
+            </p>
+          </div>
+        </div>
+        <div class="column">
+          <div class="field">
+            <label class="label has-text-light">Tipo</label>
+            <div class="control">
+              <div class="select is-fullwidth">
+                <select name="tipo" id="tipo">
+                  <option value="estetico">Estético</option>
+                  <option value="graduacion">Graduación</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+		</div>
+<div class="columns">
+
+  <div class="column" id="guardar">
+    <button class="button is-success hass-icons-left" type="button" 
+    onclick="ml.guardar()"
+    >
+    <span class="icon is-left pt-2">
+      <icon-save></icon-save>
+    </span>
+      <span>Guardar</span>
+    </button>
+  </div>
+  <div class="column">
+    <button class="button is-primary has-icons-left is-hidden" type="button" id="actualizar"
+    onclick="ml.updateLenteC();"
+    >
+    <span class="icon is-left pt-2">
+      <icon-update></icon-update>
+    </span>
+      <span>Actualizar</span>
+    </button>
+  </div>
+  <div class="column">
+    <button class="button is-warning has-icons-left" type="button" id="limpiar"
+    onclick="ml.limpiarForm()"
+    >
+    <span class="icon is-left pt-2">
+      <icon-clean></icon-clean>
+    </span>
+      <span>Limpiar</span>
+    </button>
+  </div>
+  <div class="column">
+    <button id="mostrar" class="button is-primary has-icons-left" type="button"
+    onclick="ml.tablaLenteC('1')"
+    >
+    <span class="icon is-left pt-2">
+      <icon-eye></icon-eye>
+    </span>
+      <span>Ver lentes contacto</span>
+    </button>
+  </div>
+  <div class="column">
+    <button id="mostrarD" class="button is-link has-icons-left" type="button"
+    onclick="ml.tablaLenteC('0')"
+    >
+    <span class="icon is-left pt-2">
+      <icon-eye></icon-eye>
+    </span>
+      <span>Ver lentes contacto inactivos</span>
+    </button>
+  </div>
+</div>
+
+	</form>
+  <div class="card mt-5">
+		<header class="card-header flex p-2">
+			<h3 class="card-header-title">Tabla de lentes de contacto</h3>
+			<div class="control">
+				<input
+					type="text"
+					id="buscar"
+					placeholder="buscar"
+					class="input"
+				/>
+			</div>
+			<button id="buscarP" class="button is-dark p-3 has-icons-left" type="button"
+      onclick="ml.realizarBusqueda()" 
+      >
+			<span class="icon is-left pt-2">
+        <icon-search></icon-search>
+      </span>
+       
+      </button>
+			</button>
+		</header>
+
+		<div class="card-content">
+			<div class="has-text-light scroll content">
+				<table class="table is-striped is-hoverable is-fullwidth">
+					<thead>
+						<tr id="tr">
+							<th>Nombre</th>
+              <th>Codigo barras</th>
+							<th>Marca</th>
+							<th>Precio compra</th>
+              <th>Precio venta</th>
+              <th>Existencias</th>
+              <th>Keratometria</th>
+              <th>Tipo</th>
+              <th>Fotografia</th>
+							<th>Ver</th>
+							<th>Estatus</th>
+						</tr>
+					</thead>
+					<tbody class="tabla"></tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</main>

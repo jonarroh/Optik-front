@@ -1,0 +1,90 @@
+<main>
+	<div class="columns mt-5">
+		<div class="column">
+			<div class="field">
+				<div class="control">
+					<input
+						class="input"
+						type="text"
+						placeholder="Buscar producto..."
+						id="buscar"
+					/>
+				</div>
+			</div>
+		</div>
+		<div class="column">
+			<div class="field">
+				<div class="control">
+					<button
+						id="buscarP"
+						class="button is-dark p-3 has-icons-left"
+						type="button"
+						onclick="mv.searchTable();"
+					>
+						<span class="icon is-left pt-2">
+							<icon-search></icon-search>
+						</span>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="card mt-5">
+		<header class="card-header flex p-2">
+			<h3 class="card-header-title">
+				Total: $
+				<p id="total">0</p>
+			</h3>
+			<button
+				class="button is-dark p-3 has-icons-left"
+				type="button"
+				onclick="mv.flipTable();"
+			>
+				Ver venta
+			</button>
+			<button
+				class="button is-danger p-3 has-icons-left mx-2"
+				type="button"
+				onclick="mv.vender();"
+			>
+				Hacer Venta
+			</button>
+		</header>
+
+		<div class="card-content" id="tblView">
+			<div class="has-text-light scroll content">
+				<table class="table is-striped is-hoverable is-fullwidth">
+					<thead>
+						<tr>
+							<th>C.BARRAS</th>
+							<th>NOMBRE</th>
+							<th>PRECIO</th>
+							<th>AÑADIR</th>
+						</tr>
+					</thead>
+					<tbody id="tblVenta"></tbody>
+				</table>
+			</div>
+		</div>
+		<div class="card-content is-hidden" id="tblView3">
+			<div class="has-text-light scroll content">
+				<table
+					class="table is-striped is-hoverable is-fullwidth"
+					id="tblView2"
+				>
+					<thead>
+						<tr>
+							<th>C.BARRAS</th>
+							<th>NOMBRE</th>
+							<th>PRECIO</th>
+							<th>DESCUENTO</th>
+							<th>CANTIDAD</th>
+						</tr>
+					</thead>
+					<tbody id="tbody2"></tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</main>

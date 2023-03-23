@@ -1,0 +1,161 @@
+
+    <main>
+        <div class="center has-text-light">
+            <h1>Compra de productos</h1>
+        </div>
+
+        <div class="columns">
+            <div class="column">
+               
+                    <label class="label has-text-white">Empleado que atiende</label>
+                    <div class="select is-fullwidth">
+                        <select  id="selectEmpleado" > <!-- class="form-select" -->
+                            <option value="">Empleado que atiende</option>
+                        </select>
+                    </div>
+                
+            </div>
+        </div>
+
+        <div class="columns">
+            <div class="column">
+                <div class="field">
+                    <label class="label has-text-white">Buscar producto</label>
+                    <input type="text" id="buscarProducto" class="input" name="searchFilter" placeholder="Buscar producto" onkeyup="mcp.filter(this.value)">
+                </div>
+            </div>
+
+            <div class="column">
+                <label class="label has-text-white">Selección de productos</label>
+                <div class="select is-fullwidth">
+                    <select id="selectProducto" > <!-- class="form-select" -->
+                        <option value="">Producto</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="field">
+                    <label class="label has-text-white">Existencias</label>
+                    <input type="text" id="existencias" class="input" name="existencias" placeholder="Existencias" disabled>
+                </div>
+            </div>
+            <div class="column">
+                <div class="field">
+                    <label class="label has-text-white">Cantidad</label>
+                    <input type="text" id="txtCantidad" placeholder="Cantidad" class="input">
+                </div>
+            </div>
+
+        </div>
+        <div class="columns">
+            <div class="column">
+                <button type="button" onclick="mcp.insertar()" class="button is-success hass-icons-left" >
+                    <span class="icon is-left pt-2">
+                        <icon-save></icon-save>
+                      </span>
+                    <span>Ingresar Nueva Compra</span>
+                </button>
+            </div>
+
+            <div class="column">
+                <button type="button" class="button is-success is-light hass-icons-left" onclick="mcp.insertarProducto()" >
+                    <span class="icon is-left pt-2">
+                        <icon-save></icon-save>
+                      </span>
+                <span>Ingresar Producto A La Compra</span>
+                </button>
+            </div>
+
+            <div class="column">
+                <button type="button" onclick="mcp.getAllCompra()"  class="button is-primary has-icons-left">
+                    
+                    <span class="icon is-left pt-2">
+                        <icon-eye></icon-eye>
+                      </span>
+                    <span>Mostrar Compras</span>
+                    </button>
+            </div>
+
+            <div class="column">
+                <button type="button" onclick="mcp.getAllCompraCanceladas()" class="button is-link hass-icons-left" >
+                    <span class="icon is-left pt-2">
+                        <icon-eye></icon-eye>
+                      </span>
+                    <span>Mostrar Compras Canceladas</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="card mt-5">
+            <header class="card-header flex p-2">
+                <h3 class="card-header-title">Tabla de accesorios</h3>
+                <div class="control">
+                    <input type="text" id="txtbuscarCompra" onkeyup="mcp.searchTable()" placeholder="Buscar" class="input">
+                </div>
+                <button id="buscarP" class="button is-dark p-3 has-icons-left" type="button"
+          onclick="mcp.searchTable()" 
+          >
+                <span class="icon is-left pt-2">
+            <icon-search></icon-search>
+          </span>
+           
+          </button>
+                </button>
+            </header>
+    
+            <div class="card-content">
+                <div class="has-text-light scroll content">
+                    <table class="table is-striped is-hoverable is-fullwidth" id="tbAllP">
+                        <thead >
+                            <tr>
+                                <th>NO. COMPRA</th>
+                                <th>EMPLEADO QUE ATENDIO</th>
+                                <th>Ver</th>
+                                <th>Estatus</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbCompra" class="tabla"></tbody> 
+                    </table>
+                </div>
+            </div>
+        </div>
+            <div class="card mt-5">
+                <header class="card-header flex p-2">
+                    <h3 class="card-header-title">Tabla de accesorios</h3>
+                    <div class="control">
+                        <input type="text" id="txtbuscarProducto" onkeyup="mcp.searchTable2()" placeholder="Buscar" class="input">
+                    </div>
+                    <button class="button is-dark p-3 has-icons-left" type="button"
+              onclick="mcp.searchTable2()" 
+              >
+                    <span class="icon is-left pt-2">
+                <icon-search></icon-search>
+              </span>
+               
+              </button>
+                    </button>
+                </header>
+        
+                <div class="card-content">
+                    <div class="has-text-light scroll content">
+                        <table class="table is-striped is-hoverable is-fullwidth" id="tbAllP">
+                                <thead >
+                                    <tr>
+                                        <th>NOMBRE</th>
+                                        <th>MARCA</th>
+                                        <th>CODIGO DE BARRAS</th>
+                                        <th>CANTIDAD</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tbCompraProducto" class="tabla"></tbody>
+                            </table>
+                        </table>
+                    </div>
+                </div>
+
+              <div>
+                  <input type="hidden" id="txtidCompra" >
+              </div>
+      </div>
+  </main>

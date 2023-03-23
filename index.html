@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Optik</title>
+		<meta charset="UTF-8" />
+		<link rel="stylesheet" href="./css/bulma.min.css" />
+		<link rel="stylesheet" href="./css/style.css" />
+		<link
+			rel="stylesheet"
+			href="./css/sweetalert2/sweetalert2.min.css"
+		/>
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+	</head>
+	<body class="has-background-info">
+            <style>
+			body {
+				margin: 0;
+				font: normal 75% Arial, Helvetica, sans-serif;
+			}
+			canvas {
+				display: block;
+				vertical-align: bottom;
+			} /* ---- particles.js container ---- */
+			#particles-js {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				background-color: #3e8ed0;
+				background-image: url('');
+				background-repeat: no-repeat;
+				background-size: cover;
+				background-position: 50% 50%;
+			} /* ---- stats.js ---- */
+			.count-particles {
+				background: #000022;
+				position: absolute;
+				top: 48px;
+				left: 0;
+				width: 80px;
+				color: #13e8e9;
+				font-size: 0.8em;
+				text-align: left;
+				text-indent: 4px;
+				line-height: 14px;
+				padding-bottom: 2px;
+				font-family: Helvetica, Arial, sans-serif;
+				font-weight: bold;
+			}
+			.js-count-particles {
+				font-size: 1.1em;
+			}
+			#stats,
+			.count-particles {
+				-webkit-user-select: none;
+				margin-top: 5px;
+				margin-left: 5px;
+			}
+			#stats {
+				border-radius: 3px 3px 0 0;
+				overflow: hidden;
+			}
+			.count-particles {
+				border-radius: 0 0 3px 3px;
+			}
+		</style>
+		<!-- <div id="app" style="padding-left: 20px; padding-right: 20px" class="panel">
+			<main style="height: 100vh;" class="flex2">
+				<div class="container is-max-desktop">
+					
+			</main>
+		</div> -->
+		<section>
+			<div class="login">
+				<div class="card">
+					<header class="card-header">
+						<p class="card-header-title">
+							<span class="qua1">QUA</span
+							><span class="lite1">lite</span>
+						</p>
+					</header>
+					<div class="card-content">
+						<div class="content">
+							<label class="label has-text-black"
+								>Nombre de Usuario</label
+							>
+							<div class="control has-icons-left">
+								<input
+									name="nombre"
+									id="nombre"
+									class="input"
+									type="text"
+									placeholder="Nombre de Usuario"
+								/>
+								<span class="icon is-left pt-1">
+									<icon-person></icon-person>
+								</span>
+							</div>
+
+							<label class="label has-text-black">Contraseña</label>
+							<div class="control has-icons-left">
+								<input
+									name="contrasenia"
+									id="contrasenia"
+									class="input"
+									type="password"
+									placeholder="Contraseña"
+								/>
+								<span class="icon is-left pt-1">
+									<icon-lock></icon-lock>
+								</span>
+							</div>
+						</div>
+					</div>
+					<footer
+						class="card-footer is-flex is-justify-content-center is-align-content-center"
+					>
+						<div align="center" class="m-5">
+							<button
+								class="button is-success is-medium is-fullwidth"
+								id="login"
+							>
+								Ingresar
+							</button>
+						</div>
+					</footer>
+				</div>
+			</div>
+		</section>
+
+		<div id="particles-js"></div>
+		
+		<script src="./main.js"></script>
+		<script src="./css/sweetalert2/sweetalert2.all.min.js"></script>
+		<script src="./components/icon-person.js"></script>
+		<script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+		<script src="http://threejs.org/examples/js/libs/stats.min.js"></script>
+		<script>
+			particlesJS('particles-js', {
+				particles: {
+					number: {
+						value: 147,
+						density: { enable: true, value_area: 3235.556397326323 }
+					},
+					color: { value: '#fafafa' },
+					shape: {
+						type: 'star',
+						stroke: { width: 0, color: '#000000' },
+						polygon: { nb_sides: 5 },
+						image: { src: 'img/github.svg', width: 100, height: 100 }
+					},
+					opacity: {
+						value: 0.5,
+						random: false,
+						anim: {
+							enable: false,
+							speed: 1,
+							opacity_min: 0.1,
+							sync: false
+						}
+					},
+					size: {
+						value: 3,
+						random: true,
+						anim: {
+							enable: false,
+							speed: 40,
+							size_min: 0.1,
+							sync: false
+						}
+					},
+					line_linked: {
+						enable: true,
+						distance: 150,
+						color: '#ffffff',
+						opacity: 0.4,
+						width: 1
+					},
+					move: {
+						enable: true,
+						speed: 6,
+						direction: 'none',
+						random: false,
+						straight: false,
+						out_mode: 'out',
+						bounce: false,
+						attract: { enable: false, rotateX: 600, rotateY: 1200 }
+					}
+				},
+				interactivity: {
+					detect_on: 'canvas',
+					events: {
+						onhover: { enable: true, mode: 'repulse' },
+						onclick: { enable: true, mode: 'push' },
+						resize: true
+					},
+					modes: {
+						grab: { distance: 400, line_linked: { opacity: 1 } },
+						bubble: {
+							distance: 400,
+							size: 40,
+							duration: 2,
+							opacity: 8,
+							speed: 3
+						},
+						repulse: { distance: 200, duration: 0.4 },
+						push: { particles_nb: 4 },
+						remove: { particles_nb: 2 }
+					}
+				},
+				retina_detect: true
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,288 @@
+<main>
+	<div class="center has-text-light">
+		<h1>Gestión de armazon</h1>
+	</div>
+
+	<div class="columns">
+		<div class="column" style="display: none">
+			<div class="field">
+				<label class="label has-text-light">ID Armazon:</label>
+				<div class="control">
+					<input
+						type="text"
+						readonly
+						id="txtidArmazon"
+						class="input"
+					/>
+				</div>
+			</div>
+		</div>
+		<div class="column" style="display: none">
+			<div class="field">
+				<label class="label has-text-white">ID Producto:</label><br />
+				<input
+					type="text"
+					readonly
+					id="txtidProducto"
+					class="input"
+				/>
+			</div>
+		</div>
+		<div class="column" style="display: none">
+			<div class="field">
+				<label class="form-label">Codigo de barras:</label><br />
+				<input
+					type="text"
+					readonly
+					id="txtcodigoBarras"
+					class="form-control"
+				/>
+			</div>
+		</div>
+	</div>
+	<div class="columns">
+		
+		<div class="column">
+			<div class="field">
+				<label class="label has-text-white">Nombre</label>
+				<input
+					type="text"
+					class="input"
+					placeholder="Nombre de armazon"
+					aria-label="Nombre"
+					id="txtnombre"
+				/>
+			</div>
+		</div>
+		<div class="column">
+			<div class="field">
+				<label class="label has-text-white">Marca</label>
+					<input
+						type="text"
+						class="input"
+						placeholder="marca"
+						aria-label="marca"
+						id="txtmarca"
+					/>
+			</div>
+		</div>
+
+		<div class="column">
+			<div class="field">
+				<label class="label has-text-white">Precio Compra</label>
+					<input
+						type="text"
+						class="input"
+						placeholder="Precio compra"
+						aria-label="precio venta"
+						id="txtprecioCompra"
+					/>
+			</div>
+		</div>
+
+		<div class="column">
+			<div class="field">
+				<label class="label has-text-white">Precio Venta</label>
+				<input
+					type="text"
+					class="input"
+					placeholder="Precio Venta"
+					aria-label="precio venta"
+					id="txtprecioVenta"
+				/>
+			</div>
+		</div>
+		<div class="column">
+			<div class="field">
+				<label class="label has-text-white">Existencias</label>
+				<input
+					type="text"
+					class="input"
+					placeholder="Existencias"
+					aria-label="existencias"
+					id="txtexistencias"
+				/>
+			</div>
+		</div>
+	</div>
+
+		<div class="columns">
+
+			<div class="column">
+				<div class="field">
+					<label class="label has-text-white">Modelo</label>
+					<input
+						type="text"
+						class="input"
+						placeholder="Modelo"
+						aria-label="modelo"
+						id="txtmodelo"
+					/>
+				</div>
+			</div>
+
+			<div class="column">
+				<div class="field">
+					<label class="label has-text-white">Color</label>
+					<input
+						type="text"
+						class="input"
+						placeholder="Color"
+						aria-label="color"
+						id="txtcolor"
+					/>
+				</div>
+			</div>
+
+			<div class="column">
+				<div class="field">
+					<label class="label has-text-white">Dimensiones</label>
+					<input
+						type="text"
+						class="input"
+						placeholder="Dimensiones"
+						aria-label="Dimensiones"
+						id="txtdimensiones"
+					/>
+				</div>
+			</div>
+			<div class="column">
+				<div class="field">
+					<label class="label has-text-white">Fotografia</label>
+					<input
+						type="file"
+						class="input"
+						accept=".jpg, .jpeg, .png"
+						aria-label="Fotografia"
+						id="txtfotografia"
+						onchange="mar.cambiarFoto()"
+					/>
+				</div>
+			</div>
+		</div>
+
+		<div class="columns">
+			<div class="column">
+				<div class="field">
+					<label class="label has-text-white">Descripcion</label>
+					<textarea type="textarea"
+					class="textarea is-small has-fixed-size"
+					placeholder="Descripcion"
+					id="txtdescripcion"></textarea>
+					
+				</div>
+			</div>
+			<div class="column" align="center">
+				<div class="image is-128x128">
+					<img src="../public/default.png" alt="image" id="image" />
+				</div>
+			</div>
+			
+		</div>
+		<div class="columns">
+			<div class="column" id="btnGuardar">
+				<button
+				type="button"
+				onclick="mar.insertar()"
+				class="button is-success has-icons-left"
+			>
+			<span class="icon is-left pt-2"><icon-save></icon-save></span>
+				<span>Guardar</span>
+			</button>
+			</div>
+
+			<div class="column is-hidden" id="btnActualizar">
+				<button
+				
+				type="button"
+				onclick="mar.actualizar();"
+				class="button is-primary has-icons-left "
+			>
+			
+			<span class="icon is-left pt-2"><icon-update></icon-update></span>
+				<span>Actualizar</span>
+			</button>
+			</div>
+			<div class="column">
+				<button
+						type="button"
+						onclick="mar.limpiar();"
+						class="button is-warning has-icons-left"
+					>
+					<span class="icon is-left pt-2"><icon-clean></icon-clean></span>
+						<span>Limpiar</span>
+					</button>
+			</div>
+			<div class="column">
+				<button
+				type="button"
+				onclick="mar.getAll(1);"
+				class="button is-primary has-icons-left"
+				id="gg-trash"
+			>
+			<span class="icon is-left pt-2"><icon-eye></icon-eye></span>
+				<span>Ver armazones </span>
+			</button>
+
+			</div>
+			<div class="column">
+
+				<button
+						type="button"
+						onclick="mar.getAll(0);"
+						class="button is-link has-icons-left"
+					>
+					<span class="icon is-left pt-2"><icon-eye></icon-eye></span>
+						<span>Ver armazones inactivos</span>
+					</button>
+			</div>
+
+
+		</div>
+		<div class="card mt-5">
+			<header class="card-header flex p-2">
+				<h3 class="card-header-title">Tabla de Armazones</h3>
+				<div class="control">
+					<input
+						type="text"
+						class="input"
+						placeholder="Buscar..."
+						id="button-addon2"
+					/>
+				</div>
+				<button id="buscarP" class="button is-dark p-3 has-icons-left" type="button"
+				onclick="mar.buscar();" 
+				>
+				<span class="icon is-left pt-2">
+					<icon-search></icon-search>
+				</span>
+				 
+				</button>
+				</button>
+			</header>
+	
+			<div class="card-content">
+				<div class="has-text-light scroll content">
+					<table class="table is-striped is-hoverable is-fullwidth">
+							<thead>
+								<tr>
+									<td>Nombre</td>
+									<td>Codigo de barras</td>
+									<td>Marca</td>
+									<td>Precio compra</td>
+									<td>Precio venta</td>
+									<td>Existencias</td>
+									<td>Dimenciones</td>
+									<td>Descripción</td>
+									<td>Fotografia</td>
+									<td>Ver</td>
+									<td>Estatus</td>
+								</tr>
+							</thead>
+							<tbody id="tbArmazon"></tbody>
+						</table>
+				</div>
+			</div>
+		</div>
+
+	</main>

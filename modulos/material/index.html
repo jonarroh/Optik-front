@@ -1,0 +1,131 @@
+<main>
+  <div class="center has-text-light">
+		<h1>Gestión de material</h1>
+	</div>
+  <div class="columns">
+    <div class="column">
+      <div class="field">
+        <label class="label has-text-white" for="nombre">Nombre</label>
+        <input
+									class="input"
+									type="text"
+									name="nombre"
+									id="nombre"
+								/>
+								
+      </div>
+    </div>
+    <div class="column">
+      <div class="field">
+        <label class="label has-text-white">Precio Compra</label>
+        <input
+									class="input"
+									type="number"
+									name="precioC"
+									id="precioC"
+								/>
+								
+								
+      </div>
+    </div>
+    <div class="column">
+      <div class="field">
+        <label class="label has-text-white">Precio Venta</label>
+          <input
+            class="input"
+            type="number"
+            name="precioV"
+            id="precioV"
+          />
+      </div>
+    </div>
+  </div>
+  <div class="columns mt-5" >
+
+    <div class="column" id="guardar">
+      <button
+      type="button"
+      class="button is-success has-icon-left"
+      onclick="mm.insertar();"
+    >
+    <span class="icon is-left pt-2"><icon-save></icon-save></span>
+    <span>Guardar</span>
+    </button>
+    </div>
+    <div class="column is-hidden" id="actualizar">
+      <button
+    type="button"
+    
+    class="button is-primary has-icon-left "
+    onclick="mm.actualizar();"
+  ><span class="icon is-left pt-2"><icon-update></icon-update></span>
+  <span>Actualizar</span>
+  </button>
+    </div>
+    <div class="column">
+      <button
+      type="button"
+      class="button is-warning has-icon-left"
+      onclick="mm.limpiar();"
+    >
+    <span class="icon is-left pt-2"><icon-clean></icon-clean></span>
+						<span>Limpiar</span>
+    </button>
+    </div>
+    <div class="column">
+      <button type="button" class="button is-primary has-icon-left" onclick="mm.getAll();">
+        <span class="icon is-left pt-2"><icon-eye></icon-eye></span>
+              <span>Ver materiales </span>
+        
+      </button>
+    </div>
+    <div class="column">
+      <button type="button" class="button is-link has-icon-left" onclick="mm.getInactivos();">
+        <span class="icon is-left pt-2"><icon-eye></icon-eye></span>
+              <span>Ver materiales inactivos </span>
+      </button>
+    </div>
+    </div>
+  </div>  
+    <div class="card mt-5">
+			<header class="card-header flex p-2">
+				<h3 class="card-header-title">Tabla de Armazones</h3>
+				<div class="control">
+					<input
+						type="text"
+						class="input"
+						placeholder="Buscar..."
+						id="txtbuscar"
+					/>
+				</div>
+				<button id="buscarP" class="button is-dark p-3 has-icons-left" type="button"
+				onclick="mm.searchTable();""
+				>
+				<span class="icon is-left pt-2">
+					<icon-search></icon-search>
+				</span>
+				 
+				</button>
+				</button>
+			</header>
+	
+			<div class="card-content">
+				<div class="has-text-light scroll content">
+					<table class="table is-striped is-hoverable is-fullwidth" id="tblView">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Precio Compra</th>
+                  <th>Precio Venta</th>
+                  <th>Ver</th>
+                  <th>Estatus</th>
+                </tr>
+              </thead>
+							<tbody id="tbArmazon"></tbody>
+						</table>
+				</div>
+			</div>
+		</div>
+		<input type="text" style="display: none" id="idMaterial" />
+	</div>
+</main>

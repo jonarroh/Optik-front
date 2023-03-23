@@ -1,0 +1,183 @@
+<main>
+	<div class="center has-text-light">
+		<h1>Gestión de graduación</h1>
+	</div>
+	<div class="columns">
+		<div class="column">
+			<div class="field">
+				<label class="label has-text-white" for="eod"
+					>Esfera ojo derecho</label
+				>
+				<input class="input" type="number" name="eod" id="eod" />
+			</div>
+		</div>
+
+		<div class="column">
+			<div class="field">
+				<label class="label has-text-white"
+					>Esfera ojo izquierdo</label
+				>
+				<input class="input" type="number" name="eoi" id="eoi" />
+			</div>
+		</div>
+	</div>
+	<div class="columns">
+		<div class="column">
+			<div class="field">
+				<label class="label has-text-white"
+					>Cilindro ojo derecho</label
+				>
+				<input class="input" type="number" name="cod" id="cod" />
+			</div>
+		</div>
+		<div class="column">
+			<div class="field">
+				<label class="label has-text-white"
+					>Cilindro ojo izquierdo</label
+				>
+				<input class="input" type="number" name="coi" id="coi" />
+			</div>
+		</div>
+	</div>
+
+	<div class="columns">
+		<div class="column">
+			<div class="field">
+				<label class="label has-text-white">Eje ojo derecho</label>
+				<input class="input" type="number" name="ejeod" id="ejeod" />
+			</div>
+		</div>
+		<div class="column">
+			<div class="field">
+				<label class="label has-text-white">Eje ojo izquierdo</label>
+				<input class="input" type="number" name="ejeoi" id="ejeoi" />
+			</div>
+		</div>
+		<div class="column">
+			<div class="field">
+				<label class="label has-text-white"
+					>DIP ejemplo: 62/64
+				</label>
+				<input class="input" type="text" name="dip" id="dip" />
+			</div>
+		</div>
+	</div>
+	<div class="columns">
+		<div class="column" id="guardar">
+			<div class="field">
+				<button
+					type="button"
+					class="button is-success has-icon-left"
+					onclick="mg.insertar();"
+				>
+					<span class="icon is-left pt-2"
+						><icon-save></icon-save
+					></span>
+					<span>Guardar</span>
+				</button>
+			</div>
+		</div>
+		<div class="column is-hidden" id="actualizar">
+			<div class="field">
+				<button
+					type="button"
+					class="button is-primary"
+					onclick="mg.actualizar();"
+				>
+					<span class="icon is-left pt-2"
+						><icon-update></icon-update
+					></span>
+					<span>Actualizar</span>
+				</button>
+			</div>
+		</div>
+		<div class="column">
+			<div class="field">
+				<button
+					type="button"
+					class="button is-warning has-icon-left"
+					onclick="mg.limpiar();"
+				>
+					<span class="icon is-left pt-2"
+						><icon-clean></icon-clean
+					></span>
+					<span>Limpiar</span>
+				</button>
+			</div>
+		</div>
+		<div class="column">
+			<div class="field">
+				<button
+					type="button"
+					class="button is-primary"
+					onclick="mg.getAll();"
+				>
+					<span class="icon is-left pt-2"><icon-eye></icon-eye></span>
+					<span>Cargar graduaciónes</span>
+				</button>
+			</div>
+		</div>
+
+		<div class="column">
+			<div class="field">
+				<button
+					type="button"
+					class="button is-link"
+					onclick="mg.getAllIn();"
+				>
+					<span class="icon is-left pt-2"><icon-eye></icon-eye></span>
+					<span>Cargar graduaciónes inactivas</span>
+				</button>
+			</div>
+		</div>
+	</div>
+	<div class="card mt-5">
+		<header class="card-header flex p-2">
+			<h3 class="card-header-title">Tabla de graduaciónes</h3>
+
+			<div class="control">
+				<input
+					type="text"
+					class="input"
+					placeholder="Buscar..."
+					id="txtbuscar"
+				/>
+			</div>
+			<button
+				id="buscarP"
+				class="button is-dark p-3 has-icons-left"
+				type="button"
+				onclick="mg.searchTable();"
+			>
+				<span class="icon is-left pt-2">
+					<icon-search></icon-search>
+				</span>
+			</button>
+		</header>
+
+		<div class="card-content">
+			<div class="has-text-light scroll content">
+				<table
+					class="table is-striped is-hoverable is-fullwidth"
+					id="tblView"
+				>
+					<thead>
+						<tr>
+							<th>Esfera ojo derecho</th>
+							<th>Esfera ojo izquierdo</th>
+							<th>Cilindro ojo derecho</th>
+							<th>Cilindro ojo izquierdo</th>
+							<th>Eje ojo derecho</th>
+							<th>Eje ojo izquierdo</th>
+							<th>DIP</th>
+							<th colspan="2"></th>
+						</tr>
+					</thead>
+					<tbody id="tblGraduacion"></tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<input type="text" style="display: none" id="idGraduacion" />
+</main>

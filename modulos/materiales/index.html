@@ -1,0 +1,119 @@
+<main>
+  <div class="center has-text-light">
+		<h1>Gestión de Material</h1>
+	</div>
+  <div class="columns">
+    <form id="formM">
+    <div class="column">
+      <div class="field">
+        <label class="label">Nombre</label>
+        <div class="control">
+          <input class="input" type="text" placeholder="Nombre" id="nombre">
+        </div>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="field">
+        <label class="label">Precio Compra</label>
+        <div class="control">
+          <input class="input" type="number" placeholder="Precio Compra" id="precioC">
+        </div>
+      </div>
+  </div>
+
+  <div class="column">
+    <div class="field">
+      <label class="label">Precio Venta</label>
+      <div class="control">
+        <input class="input" type="number" placeholder="Precio Venta" id="precioV">
+      </div>
+    </div>
+  </form>
+  </div>
+
+  <div class="columns">
+    <div class="column">
+      <button  type="button" class="button is-success has-icons-left" onclick="mma.insertar();" id="guardar">
+        <span class="icon is-left pt-2">
+          <icon-save></icon-save>
+        </span>
+        <span>Guardar</span>
+      </button>
+    </div>
+    <div class="column">
+      <button  type="button" class="button is-warning has-icons-left is-hidden" onclick="mma.actualizar();" id="actualizar">
+        <span class="icon is-left pt-2">
+          <icon-save></icon-save>
+        </span>
+        <span>Actualizar</span>
+      </button>
+  </div>
+  <div class="column">
+    <button type="button" class="button is-warning has-icon-left" onclick="mma.limpiar();" >
+      <span class="icon is-left pt-2">
+        <icon-clean></icon-clean>
+      </span>
+      <span>Limpiar</span>
+    </button>
+    </div>
+
+
+    <div class="column">
+      <button type="button" class="button is-primary has-icon-left" onclick="mma.getAll();">
+        <span class="icon is-left pt-2">
+          <icon-eye></icon-eye>
+        </span>
+        <span>Ver materiales</span>
+      </button>
+    </div>
+
+    <div class="column">
+      <button type="button" class="button is-link has-icon-left" onclick="getInactivos();">
+      <span class="icon is-left pt-2">
+        <icon-eye></icon-eye>
+      </span>
+      <span>Ver materiales inactivos</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="card mt-5">
+		<header class="card-header flex p-2">
+			<h3 class="card-header-title">Tabla de empleados</h3>
+			<div class="control">
+				<input type="text" class="input" placeholder="Buscar..." id="txtbuscar">
+			</div>
+			<button
+				id="buscarP"
+				class="button is-dark p-3 has-icons-left"
+				type="button"
+				onclick="mma.searchTable();"
+			>
+				<span class="icon is-left pt-2">
+					<icon-search></icon-search>
+				</span>
+			</button>
+		</header>
+
+		<div class="card-content">
+			<div class="has-text-light scroll content">
+				<table class="table is-striped is-hoverable is-fullwidth" id="tblView">
+					<thead>
+            <tr>
+                <th>NOMBRE</th>
+                <th>PRECIO COMPRA</th>
+                <th>PRECIO VENTA</th>
+                <th>Ver</th>
+                <th>Estatus</th>
+            </tr>
+        </thead>
+        <tbody id="tblMaterial">
+        </tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+    <input type="text" style="display:none" id="idMaterial">
+</main>

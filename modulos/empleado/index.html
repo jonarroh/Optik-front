@@ -1,0 +1,502 @@
+<main class="pantalla">
+	<div class="center has-text-light">
+		<h1>Gestión de Empleados</h1>
+	</div>
+
+	<form id="form">
+		<div class="columns">
+			<div class="column">
+				<div class="field">
+					<label class="label has-text-light">Nombre</label>
+					<div class="control">
+						<input
+							class="input"
+							type="text"
+							placeholder="Nombre"
+							name="nombre"
+							id="nombre"
+						/>
+						<p
+							class="help is-danger"
+							id="nombreP"
+							style="display: none"
+						>
+							El nombre es incorrecto
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="column">
+				<div class="field">
+					<label class="label has-text-light">Apellido Paterno</label>
+					<div class="control">
+						<input
+							name="apellidoPaterno"
+							id="apellidoPaterno"
+							class="input"
+							type="text"
+							placeholder="Apellido Paterno"
+						/>
+						<p
+							class="help is-danger"
+							id="apellidoPaternoP"
+							style="display: none"
+						>
+							El apellido paterno es incorrecto
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="column">
+				<div class="field">
+					<label class="label has-text-light">Apellido Materno</label>
+					<div class="control">
+						<input
+							name="apellidoMaterno"
+							id="apellidoMaterno"
+							class="input"
+							type="text"
+							placeholder="Apellido Materno"
+						/>
+						<p
+							class="help is-danger"
+							id="apellidoMaternoP"
+							style="display: none"
+						>
+							El apellido materno es incorrecto
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="column">
+				<div class="field">
+					<label class="label has-text-light">Genero</label>
+					<div class="control">
+						<div class="select is-fullwidth">
+							<select name="genero" id="genero">
+								<option value="M">Masculino</option>
+								<option value="F">Femenino</option>
+								<option value="O">Otro</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="columns">
+			<div class="column">
+				<div class="field">
+					<label class="label has-text-light"
+						>Fecha de Nacimiento</label
+					>
+					<div class="control">
+						<input
+							name="fechaNacimiento"
+							id="fechaNacimiento"
+							class="input"
+							type="date"
+							placeholder="Fecha de Nacimiento"
+						/>
+					</div>
+				</div>
+			</div>
+			<div class="column">
+				<div class="field">
+					<label class="label has-text-light">Teléfono de Casa</label>
+					<div class="control">
+						<input
+							name="telCasa"
+							id="telCasa"
+							class="input"
+							type="number"
+							placeholder="Teléfono de Casa"
+						/>
+						<p
+							class="help is-danger"
+							id="telCasaP"
+							style="display: none"
+						>
+							El teléfono de casa es incorrecto
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="column">
+				<div class="field">
+					<label class="label has-text-light">Teléfono Movil</label>
+					<div class="control">
+						<input
+							name="telMovil"
+							id="telMovil"
+							class="input"
+							type="number"
+							placeholder="Teléfono Movil"
+						/>
+						<p
+							class="help is-danger"
+							id="telMovilP"
+							style="display: none"
+						>
+							El teléfono móvil es incorrecto
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="column">
+				<div class="field">
+					<label class="label has-text-light"
+						>Correo Electrónico</label
+					>
+					<div class="control">
+						<input
+							name="email"
+							id="email"
+							class="input"
+							type="email"
+							placeholder="Correo Electrónico"
+						/>
+						<p
+							class="help is-danger"
+							id="emailP"
+							style="display: none"
+						>
+							El correo electrónico es incorrecto
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="columns">
+			<!-- input de Calle, numero, colonia, cp -->
+			<div class="column">
+				<div class="field">
+					<label class="label has-text-light">Calle</label>
+					<div class="control">
+						<input
+							class="input"
+							type="text"
+							placeholder="Calle"
+							name="calle"
+							id="calle"
+						/>
+						<p
+							class="help is-danger"
+							id="calleP"
+							style="display: none"
+						>
+							La calle es incorrecta
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="column">
+				<div class="field">
+					<label class="label has-text-light">Numero</label>
+					<div class="control">
+						<input
+							class="input"
+							type="number"
+							placeholder="Numero"
+							name="numero"
+							id="numero"
+						/>
+						<p
+							class="help is-danger"
+							id="numeroP"
+							style="display: none"
+						>
+							El número es incorrecto
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="column">
+				<div class="field">
+					<label class="label has-text-light">Colonia</label>
+					<div class="control">
+						<input
+							class="input"
+							type="text"
+							placeholder="Colonia"
+							name="colonia"
+							id="colonia"
+						/>
+						<p
+							class="help is-danger"
+							id="coloniaP"
+							style="display: none"
+						>
+							La colonia es incorrecta
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="column">
+				<div class="field">
+					<label class="label has-text-light">Código Postal</label>
+					<div class="control">
+						<input
+							name="cp"
+							id="cp"
+							class="input"
+							type="text"
+							placeholder="Código Postal"
+						/>
+						<p class="help is-danger" id="cpP" style="display: none">
+							El código postal es incorrecto
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="columns">
+			<!-- input de Ciudad, Estado-->
+			<div class="column">
+				<div class="field">
+					<label class="label has-text-light">Ciudad</label>
+					<div class="control">
+						<input
+							class="input"
+							type="text"
+							placeholder="Ciudad"
+							name="ciudad"
+							id="ciudad"
+						/>
+						<p
+							class="help is-danger"
+							id="ciudadP"
+							style="display: none"
+						>
+							La ciudad es incorrecta
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="column">
+				<div class="field">
+					<label class="label has-text-light">Estado</label>
+					<div class="select is-fullwidth">
+						<select id="estado" name="estado">
+							<!-- estados de México -->
+							<option value="Aguascalientes">Aguascalientes</option>
+							<option value="Baja California">Baja California</option>
+							<option value="Baja California Sur">
+								Baja California Sur
+							</option>
+							<option value="Campeche">Campeche</option>
+							<option value="Chiapas">Chiapas</option>
+							<option value="Chihuahua">Chihuahua</option>
+							<option value="Ciudad de México">
+								Ciudad de México
+							</option>
+							<option value="Coahuila">Coahuila</option>
+							<option value="Colima">Colima</option>
+							<option value="Durango">Durango</option>
+							<option value="Estado de México">
+								Estado de México
+							</option>
+							<option value="Guanajuato">Guanajuato</option>
+							<option value="Guerrero">Guerrero</option>
+							<option value="Hidalgo">Hidalgo</option>
+							<option value="Jalisco">Jalisco</option>
+							<option value="Michoacan">Michoacan</option>
+							<option value="Morelos">Morelos</option>
+							<option value="Nayarit">Nayarit</option>
+							<option value="Nuevo León">Nuevo León</option>
+							<option value="Oaxaca">Oaxaca</option>
+							<option value="Puebla">Puebla</option>
+							<option value="Queretaro">Queretaro</option>
+							<option value="Quintana Roo">Quintana Roo</option>
+							<option value="San Luis Potosí">San Luis Potosí</option>
+							<option value="Sinaloa">Sinaloa</option>
+							<option value="Sonora">Sonora</option>
+							<option value="Tabasco">Tabasco</option>
+							<option value="Tamaulipas">Tamaulipas</option>
+							<option value="Tlaxcala">Tlaxcala</option>
+							<option value="Veracruz">Veracruz</option>
+							<option value="Yucatan">Yucatan</option>
+							<option value="Zacatecas">Zacatecas</option>
+						</select>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+	<form id="form2">
+		<!-- datos de usuario nombreUsuario, contraseña, rol-->
+		<div class="columns">
+			<div class="column">
+				<div class="field">
+					<label class="label has-text-light"
+						>Nombre de Usuario</label
+					>
+					<div class="control">
+						<input
+							name="nombre"
+							id="nombreUsuario"
+							class="input"
+							type="text"
+							placeholder="Nombre de Usuario"
+						/>
+						<p
+							class="help is-danger"
+							id="nombreUsuarioP"
+							style="display: none"
+						>
+							El nombre de usuario es incorrecto
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="column">
+				<div class="field">
+					<label class="label has-text-light">Contraseña</label>
+					<div class="control">
+						<input
+							name="contrasenia"
+							id="contrasenia"
+							class="input"
+							type="password"
+							placeholder="Contraseña"
+						/>
+						<p
+							class="help is-danger"
+							id="contraseniaP"
+							style="display: none"
+						>
+							La contraseña es incorrecta al menos 8 caracteres, al
+							menos una letra y un número
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="column">
+				<div class="field">
+					<label class="label has-text-light">Rol</label>
+					<div class="control">
+						<div class="select is-fullwidth">
+							<select name="rol" id="rol">
+								<option value="Administrador">Administrador</option>
+								<option value="Usuario">Usuario</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="columns">
+			<div class="column" id="guardar">
+				<button
+					class="button is-success has-icons-left"
+					type="button"
+					onclick="ma.guardar()"
+				>
+					<span class="icon is-left pt-2">
+						<icon-save></icon-save>
+					</span>
+					<span>Guardar</span>
+				</button>
+			</div>
+			<div class="column is-hidden" id="actualizar">
+				<button
+					class="button is-primary has-icons-left"
+					type="button"
+					onclick="ma.actualizarEmpleado()"
+				>
+					<span class="icon is-left pt-2">
+						<icon-update></icon-update>
+					</span>
+					<span>Actualizar</span>
+				</button>
+			</div>
+			<div class="column">
+				<button
+					class="button is-warning has-icons-left"
+					type="button"
+					id="limpiar"
+					onclick="ma.limpiarForm()"
+				>
+					<span class="icon is-left pt-2">
+						<icon-clean></icon-clean>
+					</span>
+					<span>Limpiar</span>
+				</button>
+			</div>
+			<div class="column">
+				<button
+					id="mostrar"
+					class="button is-primary has-icons-left"
+					type="button"
+					onclick="ma.tablaEmpleado('1');"
+				>
+					<span class="icon is-left pt-2">
+						<icon-eye></icon-eye>
+					</span>
+					<span>Ver empleados</span>
+				</button>
+			</div>
+			<div class="column">
+				<button
+					id="mostrarD"
+					class="button is-link has-icons-left"
+					type="button"
+					onclick="ma.tablaEmpleado('0');"
+				>
+					<span class="icon is-left pt-2">
+						<icon-eye></icon-eye>
+					</span>
+					<span>Ver empleados inactivos</span>
+				</button>
+			</div>
+		</div>
+	</form>
+	<input type="text" id="index" style="display: none" />
+
+	<div class="card mt-5">
+		<header class="card-header flex p-2">
+			<h3 class="card-header-title">Tabla de empleados</h3>
+			<div class="control">
+				<input
+					type="text"
+					id="buscar"
+					placeholder="buscar"
+					class="input"
+				/>
+			</div>
+			<button
+				id="buscarP"
+				class="button is-dark p-3 has-icons-left"
+				type="button"
+				onclick="ma.realizarBusqueda();"
+			>
+				<span class="icon is-left pt-2">
+					<icon-search></icon-search>
+				</span>
+			</button>
+		</header>
+
+		<div class="card-content">
+			<div class="has-text-light scroll content">
+				<table class="table is-striped is-hoverable is-fullwidth">
+					<thead>
+						<tr id="tr">
+							<th>Nombre</th>
+							<th>Genero</th>
+							<th>Fecha de nacimiento</th>
+							<th>Dirección</th>
+							<th>Teléfono casa</th>
+							<th>Teléfono móvil</th>
+							<th>Usuario</th>
+							<th>Correo</th>
+							<th>Rol</th>
+							<th>Ver</th>
+							<th>Estatus</th>
+						</tr>
+					</thead>
+					<tbody class="tabla"></tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</main>

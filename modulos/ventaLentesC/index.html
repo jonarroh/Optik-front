@@ -1,0 +1,171 @@
+<main>
+	<div class="center has-text-light title">
+		<h1>Venta Presupuesto de Lentes</h1>
+	</div>
+
+	<!-- ----------------------------------------------Select cliente -----------------------------------------  -->
+	<div class="columns">
+		<div class="column">
+			<div class="field">
+				<label class="label has-text-white">Buscar Cliente</label>
+				<input
+					type="text"
+					class="input"
+					id="buscareCliente"
+					name="searchFilter"
+					placeholder="Buscar Cliente..."
+					onkeyup="mv.filterCliente(this.value)"
+				/>
+			</div>
+		</div>
+		<div class="column">
+			<div class="field">
+				<label class="label has-text-white"
+					>Selecciona el Cliente</label
+				>
+				<div class="select is-fullwidth">
+					<select id="selectCliente" class="select">
+						<option value="0">Selecciona un cliente</option>
+					</select>
+				</div>
+			</div>
+		</div>
+
+		<!-- ----------------------------------  SELECT GRADUACIÓN  ------------------------------------ -->
+		<div class="column">
+			<div class="field">
+				<label class="label has-text-white"
+					>Graduación de examen vista</label
+				>
+				<div class="select is-fullwidth">
+					<select class="select" id="selectGraduacion">
+						<option value="0">Selecciona una graduación</option>
+					</select>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- --------------------------------------------------------- selects tipo mica, armazón y material --------------------------------------------------- -->
+	<div class="columns">
+		<div class="column">
+			<div class="field">
+				<label class="label has-text-white">Tipo mica</label>
+				<div class="select is-fullwidth">
+					<select class="select" id="selectMica">
+						<option value="0">Selecciona un tipo de mica</option>
+						<option value="estetica">Estética</option>
+						<option value="graduacion">Graduación</option>
+						</option>
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class="column">
+			<div class="field">
+				<label class="label has-text-white">Armazón</label>
+				<div class="select is-fullwidth">
+					<select class="select" id="selectArmazon"></select>
+				</div>
+			</div>
+		</div>
+
+		<div class="column">
+			<div class="field">
+				<label class="label has-text-white">Material</label>
+				<div class="select is-fullwidth">
+					<select class="select" id="selectMaterial">
+						<option value="0">Selecciona un material</option>
+					</select>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- -------------------------------------------------- TRATAMIENTO ----------------------------------------- -->
+	<div class="columns">
+		<div class="column">
+			<div class="field">
+				<label class="label has-text-white">Tratamientos</label>
+				<div class="is-fullwidth flex is-flex-direction-row has-text-light is-justify-content-space-between" id="tratamientos">
+				<label class="checkbox">
+					<input type="checkbox" id="chkTratamiento" value="antirreflejante"/>
+					Antirreflejante
+				</label>
+
+				<label class="checkbox has-text-white">
+					<input type="checkbox" id="chkTratamiento" value="blue-free"/>
+					Blue free
+				</label>
+
+				<label class="checkbox has-text-white">
+					<input type="checkbox" id="chkTratamiento" value="fotocromatico"/>
+					Fotocromático
+				</label>
+
+				<label class="checkbox has-text-white">
+					<input type="checkbox" id="chkTratamiento" value="entintado"/>
+					Entintado
+				</label>
+			</div>
+				</div>
+
+				</div>
+			</div>
+			<div class="columns">
+        <div class="column center" id="agregar">
+            <div class="field">
+                <button
+                    type="button"
+                    onclick="mv.agregarLente()"
+                    class="button is-success has-icon-left"
+                    >
+                    <span class="icon is-left pt-2"><icon-save></icon-save></span>
+                    <span>Agregar</span>
+                </button>
+            </div>
+        </div>
+        
+    </div>
+	<!-- -----------------------------------------------TABLA PRESUPUESTO LENTE ------------------------------ -->
+
+	<div class="card mt-5">
+		<header class="card-header flex p-2">
+			<h3 class="card-header-title">Tabla presupuesto de lente</h3>
+
+			<div class="control">
+			
+			</div>
+			<button
+				id="buscarL"
+				class="button is-dark p-3 "
+				type="button"
+				onclick=""
+			>
+				
+					Realizar venta
+				
+			</button>
+		</header>
+
+		<div class="card-content">
+			<div class="has-text-light scroll content">
+				<table
+					class="table is-striped is-hoverable is-fullwidth"
+					id="tblLente"
+				>
+					<thead>
+						<tr>
+							<td>Altura Oblea</td>
+							<td>Cantidad</td>
+							<td>Costo</td>
+							<td>Descuento</td>
+							<!-- <td>Estado</td> -->
+						</tr>
+					</thead>
+					<tbody id="tblPresupuestoLete"></tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</main>

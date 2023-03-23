@@ -1,0 +1,112 @@
+<main>
+	<div class="center has-text-light">
+		<h1>Venta de Lentes</h1>
+	</div>
+
+	<div class="columns">
+		<div class="column">
+			<label class="label has-text-white">Cliente atendido</label>
+			<div class="select is-fullwidth">
+				<select id="selectCliente" class="form-select">
+					<option value="">Cliente atendido</option>
+				</select>
+			</div>
+		</div>
+
+    <div class="column">
+      <label class="label has-text-white">Buscar cliente</label>
+        <input type="text" placeholder="Buscar..." class="input is-fullwidth">
+	</div>
+  </div>
+  <!-- examen de vista -->
+  <div class="columns">
+    <div class="column">
+      <label class="label has-text-white">Examen de vista</label>
+      <div class="select is-fullwidth">
+        <select id="selectExamen" class="form-select">
+          <option value="">Examen de vista</option>
+        </select>
+      </div>
+    </div>
+  </div>  
+  <!-- lente de contacto -->
+  <div class="columns">
+    <div class="column">
+      <div class="card mt-5">
+        <header class="card-header flex p-2">
+          <h3 class="card-header-title">Tabla de lentes de contacto</h3>
+          <div class="control">
+            <input
+              type="text"
+              id="buscar"
+              placeholder="buscar"
+              class="input"
+            />
+          </div>
+          <button id="buscarP" class="button is-dark p-3 has-icons-left" type="button"
+          onclick="ml.realizarBusqueda()" 
+          >
+          <span class="icon is-left pt-2">
+            <icon-search></icon-search>
+          </span>
+           
+          </button>
+          </button>
+        </header>
+    
+        <div class="card-content">
+          <div class="has-text-light scroll content">
+            <table class="table is-striped is-hoverable is-fullwidth">
+              <thead>
+                <tr id="tr">
+                  <th>Nombre</th>
+                  <th>Precio venta</th>
+                  <th>Existencias</th>
+                  <th>Fotografia</th>
+                  <th>Agregar</th>
+                </tr>
+              </thead>
+              <tbody class="tabla"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+  </div>
+ 
+  
+    <div class="card mt-5">
+      <header class="card-header flex p-2">
+        <h3 class="card-header-title">Total <p id="total">0</p></h3>
+        
+        <button
+          id="buscarP"
+          class="button is-dark p-3 has-icons-left"
+          type="button"
+          onclick="mv.guardarVentaLenteContacto()"
+        >
+          <span class=" pt-2">
+            Realizar venta
+          </span>
+        </button>
+      </header>
+  
+      <div class="card-content">
+        <div class="has-text-light scroll content">
+          <table class="table is-striped is-hoverable is-fullwidth" id="tblView">
+            <thead>
+              <tr>
+                  <th>CANTIDAD</th>
+                  <th>PRECIO UNIDAD</th>
+                  <th>PRECIO DESCUENTO</th>
+                  <th>DESCUENTO</th>
+              </tr>
+          </thead>
+          <tbody id="tblVLC">
+          </tbody>
+          </table>
+        </div>
+      </div>
+</main>
