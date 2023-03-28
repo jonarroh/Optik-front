@@ -1,6 +1,7 @@
 tablaEmpleado('1');
 const form = document.getElementById('guardar');
 let empleados = [];
+const SERVER = 'https://279d-177-228-33-76.ngrok.io/Optik';
 form.addEventListener('click', () => {
 	guardar();
 });
@@ -43,16 +44,13 @@ export function guardar() {
 }
 async function empleadoService(empleado) {
 	const urlEncoded = new URLSearchParams(empleado);
-	const reponse = await fetch(
-		'http://localhost:8080/Optik/api/empleado/guardar',
-		{
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/x-www-form-urlencoded'
-			},
-			body: urlEncoded
-		}
-	);
+	const reponse = await fetch(`${SERVER}/api/empleado/guardar`, {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/x-www-form-urlencoded'
+		},
+		body: urlEncoded
+	});
 	const data = await reponse.json();
 	if (data.error) {
 		mostrarAlerta('error', 'No se pudo guardar el empleado');
@@ -75,7 +73,7 @@ btnMostrarD.addEventListener('click', () => {
 export async function tablaEmpleado(estatus) {
 	//fetch para obtener los datos del empleado
 	const response = await fetch(
-		'http://localhost:8080/Optik/api/empleado/getallempleado',
+		`${SERVER}/api/empleado/getallempleado`,
 		{
 			method: 'POST',
 			headers: {
@@ -151,7 +149,7 @@ async function mostrarTabla(coincidencias, data) {
 
 export async function activarEmpleado(idEmpleado) {
 	const response = await fetch(
-		'http://localhost:8080/Optik/api/empleado/activateempleado',
+		`${SERVER}/api/empleado/activateempleado`,
 		{
 			method: 'POST',
 			headers: {
@@ -289,7 +287,7 @@ async function updateService(empleado) {
 	};
 
 	const response = await fetch(
-		'http://localhost:8080/Optik/api/empleado/updateempleado',
+		`${SERVER}/api/empleado/updateempleado`,
 		{
 			method: 'POST',
 			headers: {
@@ -310,16 +308,13 @@ async function updateService(empleado) {
 }
 
 export async function eliminarEmpleado(idEmpleado) {
-	const resp = await fetch(
-		'http://localhost:8080/Optik/api/empleado/deleteempleado',
-		{
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/x-www-form-urlencoded'
-			},
-			body: new URLSearchParams({ idEmpleado })
-		}
-	);
+	const resp = await fetch(`${SERVER}/api/empleado/deleteempleado`, {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/x-www-form-urlencoded'
+		},
+		body: new URLSearchParams({ idEmpleado })
+	});
 
 	mostrarAlerta('success', 'Empleado eliminado correctamente');
 	limpiarForm();

@@ -1,5 +1,6 @@
 let compras;
 let comprasI;
+const SERVER = 'https://279d-177-228-33-76.ngrok.io/Optik';
 export function insertar() {
 	let idEmpleado = document.getElementById('selectEmpleado').value;
 	let idProducto = document.getElementById('selectProducto').value;
@@ -27,7 +28,7 @@ export function insertar() {
 
 	let parametros = new URLSearchParams(compraProducto);
 
-	fetch('http://localhost:8080/Optik/api/compraProducto/insertar', {
+	fetch(`${SERVER}/api/compraProducto/insertar`, {
 		method: 'POST',
 		body: parametros,
 		headers: {
@@ -63,17 +64,14 @@ export function insertarProducto() {
 
 	let parametros = new URLSearchParams(ProductocompraProducto);
 
-	fetch(
-		'http://localhost:8080/Optik/api/compraProducto/insertarProducto',
-		{
-			method: 'POST',
-			body: parametros,
-			headers: {
-				'Content-Type':
-					'application/x-www-form-urlencoded;charset=UTF-8'
-			}
+	fetch(`${SERVER}/api/compraProducto/insertarProducto`, {
+		method: 'POST',
+		body: parametros,
+		headers: {
+			'Content-Type':
+				'application/x-www-form-urlencoded;charset=UTF-8'
 		}
-	)
+	})
 		.then(response => response.json)
 		.then(data => {
 			limpiarProductoNuevo();
@@ -93,17 +91,14 @@ export function eliminarCompra() {
 
 	let parametros = new URLSearchParams(compra);
 
-	fetch(
-		'http://localhost:8080/Optik/api/compraProducto/eliminarCompra',
-		{
-			method: 'POST',
-			body: parametros,
-			headers: {
-				'Content-Type':
-					'application/x-www-form-urlencoded;charset=UTF-8'
-			}
+	fetch(`${SERVER}/api/compraProducto/eliminarCompra`, {
+		method: 'POST',
+		body: parametros,
+		headers: {
+			'Content-Type':
+				'application/x-www-form-urlencoded;charset=UTF-8'
 		}
-	)
+	})
 		.then(response => response.json)
 		.then(data => {
 			getAllCompra();
@@ -123,17 +118,14 @@ export function recuperarCompra() {
 
 	let parametros = new URLSearchParams(compra);
 
-	fetch(
-		'http://localhost:8080/Optik/api/compraProducto/recuperarCompra',
-		{
-			method: 'POST',
-			body: parametros,
-			headers: {
-				'Content-Type':
-					'application/x-www-form-urlencoded;charset=UTF-8'
-			}
+	fetch(`${SERVER}/api/compraProducto/recuperarCompra`, {
+		method: 'POST',
+		body: parametros,
+		headers: {
+			'Content-Type':
+				'application/x-www-form-urlencoded;charset=UTF-8'
 		}
-	)
+	})
 		.then(response => response.json)
 		.then(data => {
 			getAllCompraCanceladas();
@@ -144,17 +136,14 @@ export function getAllEmpleado() {
 	let datos = { estatus: 1 };
 	let parametros = new URLSearchParams(datos);
 
-	fetch(
-		'http://localhost:8080/Optik/api/compraProducto/getAllEmpleado',
-		{
-			method: 'POST',
-			body: parametros,
-			headers: {
-				'Content-Type':
-					'application/x-www-form-urlencoded;charset=UTF-8'
-			}
+	fetch(`${SERVER}/api/compraProducto/getAllEmpleado`, {
+		method: 'POST',
+		body: parametros,
+		headers: {
+			'Content-Type':
+				'application/x-www-form-urlencoded;charset=UTF-8'
 		}
-	)
+	})
 		.then(response => response.json())
 		.then(data => {
 			if (data.error) {
@@ -191,17 +180,14 @@ export function getAllProducto() {
 	let datosP = { estatus: 1 };
 	let parametrosP = new URLSearchParams(datosP);
 
-	fetch(
-		'http://localhost:8080/Optik/api/compraProducto/getAllProducto',
-		{
-			method: 'POST',
-			body: parametrosP,
-			headers: {
-				'Content-Type':
-					'application/x-www-form-urlencoded;charset=UTF-8'
-			}
+	fetch(`${SERVER}/api/compraProducto/getAllProducto`, {
+		method: 'POST',
+		body: parametrosP,
+		headers: {
+			'Content-Type':
+				'application/x-www-form-urlencoded;charset=UTF-8'
 		}
-	)
+	})
 		.then(response => response.json())
 		.then(dataP => {
 			// alert(JSON.stringify(data));
@@ -231,17 +217,14 @@ export function getAllCompra() {
 	let datosC = { estatus: 1 };
 	let parametrosC = new URLSearchParams(datosC);
 
-	fetch(
-		'http://localhost:8080/Optik/api/compraProducto/getAllCompra',
-		{
-			method: 'POST',
-			body: parametrosC,
-			headers: {
-				'Content-Type':
-					'application/x-www-form-urlencoded;charset=UTF-8'
-			}
+	fetch(`${SERVER}/api/compraProducto/getAllCompra`, {
+		method: 'POST',
+		body: parametrosC,
+		headers: {
+			'Content-Type':
+				'application/x-www-form-urlencoded;charset=UTF-8'
 		}
-	)
+	})
 		.then(response => response.json())
 		.then(dataC => {
 			// alert(JSON.stringify(data));
@@ -292,17 +275,14 @@ export function getAllCompraProducto() {
 	let datosCP = { idCompra: idCom };
 	let parametrosCP = new URLSearchParams(datosCP);
 
-	fetch(
-		'http://localhost:8080/Optik/api/compraProducto/getAllCompraProducto',
-		{
-			method: 'POST',
-			body: parametrosCP,
-			headers: {
-				'Content-Type':
-					'application/x-www-form-urlencoded;charset=UTF-8'
-			}
+	fetch(`${SERVER}/api/compraProducto/getAllCompraProducto`, {
+		method: 'POST',
+		body: parametrosCP,
+		headers: {
+			'Content-Type':
+				'application/x-www-form-urlencoded;charset=UTF-8'
 		}
-	)
+	})
 		.then(response => response.json())
 		.then(dataCP => {
 			// alert(JSON.stringify(data));
@@ -351,17 +331,14 @@ export function getAllCompraCanceladas() {
 	let datosCI = { estatus: 0 };
 	let parametrosC = new URLSearchParams(datosCI);
 
-	fetch(
-		'http://localhost:8080/Optik/api/compraProducto/getAllCompraCanceladas',
-		{
-			method: 'POST',
-			body: parametrosC,
-			headers: {
-				'Content-Type':
-					'application/x-www-form-urlencoded;charset=UTF-8'
-			}
+	fetch(`${SERVER}/api/compraProducto/getAllCompraCanceladas`, {
+		method: 'POST',
+		body: parametrosC,
+		headers: {
+			'Content-Type':
+				'application/x-www-form-urlencoded;charset=UTF-8'
 		}
-	)
+	})
 		.then(response => response.json())
 		.then(dataCI => {
 			// alert(JSON.stringify(data));

@@ -1,5 +1,6 @@
 let examenesVistas;
 let examenesVistasI;
+const SERVER = 'https://279d-177-228-33-76.ngrok.io/Optik';
 
 export function insertarExamenVista() {
 	let idEmpleado = document.getElementById('selectEmpleado').value;
@@ -34,7 +35,7 @@ export function insertarExamenVista() {
 
 	let parametros = new URLSearchParams(examenVista);
 
-	fetch('http://localhost:8080/Optik/api/examenVista/insertar', {
+	fetch(`${SERVER}/api/examenVista/insertar`, {
 		method: 'POST',
 		body: parametros,
 		headers: {
@@ -59,17 +60,14 @@ export function getAllEmpleado() {
 	let datos = { estatus: 1 };
 	let parametros = new URLSearchParams(datos);
 
-	fetch(
-		'http://localhost:8080/Optik/api/examenVista/getAllEmpleado',
-		{
-			method: 'POST',
-			body: parametros,
-			headers: {
-				'Content-Type':
-					'application/x-www-form-urlencoded;charset=UTF-8'
-			}
+	fetch(`${SERVER}/api/examenVista/getAllEmpleado`, {
+		method: 'POST',
+		body: parametros,
+		headers: {
+			'Content-Type':
+				'application/x-www-form-urlencoded;charset=UTF-8'
 		}
-	)
+	})
 		.then(response => response.json())
 		.then(dataE => {
 			// alert(JSON.stringify(data));
@@ -107,7 +105,7 @@ export function getAllCliente() {
 	let datos = { estatus: 1 };
 	let parametros = new URLSearchParams(datos);
 
-	fetch('http://localhost:8080/Optik/api/examenVista/getAllCliente', {
+	fetch(`${SERVER}/api/examenVista/getAllCliente`, {
 		method: 'POST',
 		body: parametros,
 		headers: {
@@ -148,17 +146,14 @@ export function getAllGraduacion() {
 	let datos = { estatus: 1 };
 	let parametros = new URLSearchParams(datos);
 
-	fetch(
-		'http://localhost:8080/Optik/api/examenVista/getAllGraduacion',
-		{
-			method: 'POST',
-			body: parametros,
-			headers: {
-				'Content-Type':
-					'application/x-www-form-urlencoded;charset=UTF-8'
-			}
+	fetch(`${SERVER}/api/examenVista/getAllGraduacion`, {
+		method: 'POST',
+		body: parametros,
+		headers: {
+			'Content-Type':
+				'application/x-www-form-urlencoded;charset=UTF-8'
 		}
-	)
+	})
 		.then(response => response.json())
 		.then(data => {
 			// alert(JSON.stringify(data));
@@ -207,17 +202,14 @@ export function getAllExamenVista() {
 	let datosEv = { estatus: 1 };
 	let parametrosC = new URLSearchParams(datosEv);
 
-	fetch(
-		'http://localhost:8080/Optik/api/examenVista/getAllExamenVista',
-		{
-			method: 'POST',
-			body: parametrosC,
-			headers: {
-				'Content-Type':
-					'application/x-www-form-urlencoded;charset=UTF-8'
-			}
+	fetch(`${SERVER}/api/examenVista/getAllExamenVista`, {
+		method: 'POST',
+		body: parametrosC,
+		headers: {
+			'Content-Type':
+				'application/x-www-form-urlencoded;charset=UTF-8'
 		}
-	)
+	})
 		.then(response => response.json())
 		.then(dataEv => {
 			// alert(JSON.stringify(data));
@@ -352,7 +344,7 @@ export function actualizarExamenVista() {
 	let parametros = new URLSearchParams(examenVista);
 
 	//    alert(JSON.stringify(empleado));
-	fetch('http://localhost:8080/Optik/api/examenVista/actualizar', {
+	fetch(`${SERVER}/api/examenVista/actualizar`, {
 		method: 'POST',
 		body: parametros,
 		headers: {
@@ -399,7 +391,7 @@ export function eliminarExamenVista() {
 
 	let parametros = new URLSearchParams(examenVista);
 
-	fetch('http://localhost:8080/Optik/api/examenVista/eliminar', {
+	fetch(`${SERVER}/api/examenVista/eliminar`, {
 		method: 'POST',
 		body: parametros,
 		headers: {
@@ -427,17 +419,14 @@ export function getAllExamenVistaInactivo() {
 	let datosEvI = { estatus: 0 };
 	let parametrosC = new URLSearchParams(datosEvI);
 
-	fetch(
-		'http://localhost:8080/Optik/api/examenVista/getAllExamenVistaInactiva',
-		{
-			method: 'POST',
-			body: parametrosC,
-			headers: {
-				'Content-Type':
-					'application/x-www-form-urlencoded;charset=UTF-8'
-			}
+	fetch(`${SERVER}/api/examenVista/getAllExamenVistaInactiva`, {
+		method: 'POST',
+		body: parametrosC,
+		headers: {
+			'Content-Type':
+				'application/x-www-form-urlencoded;charset=UTF-8'
 		}
-	)
+	})
 		.then(response => response.json())
 		.then(dataEvI => {
 			// alert(JSON.stringify(data));
@@ -548,7 +537,7 @@ export function recuperarExamenVista() {
 
 	let parametros = new URLSearchParams(examenVista);
 
-	fetch('http://localhost:8080/Optik/api/examenVista/activar', {
+	fetch(`${SERVER}/api/examenVista/activar`, {
 		method: 'POST',
 		body: parametros,
 		headers: {

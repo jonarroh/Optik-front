@@ -1,4 +1,5 @@
 let armazon = [];
+const SERVER = 'https://279d-177-228-33-76.ngrok.io/Optik';
 
 /**
  * Función que se encarga de insertar un nuevo producto de armazón en la base de datos.
@@ -6,11 +7,11 @@ let armazon = [];
  * @returns {void}
  */
 export function insertar() {
-        // Verificar si los datos del formulario son válidos
+	// Verificar si los datos del formulario son válidos
 	if (validar() == false) {
 		return;
 	}
-        // Obtener los datos del formulario
+	// Obtener los datos del formulario
 	let nombre = document.getElementById('txtnombre').value;
 	let marca = document.getElementById('txtmarca').value;
 	let precioCompra = document.getElementById('txtprecioCompra').value;
@@ -21,7 +22,7 @@ export function insertar() {
 	let dimensiones = document.getElementById('txtdimensiones').value;
 	let fotografia = document.getElementById('image').src;
 	let descripcion = document.getElementById('txtdescripcion').value;
-        // Crear objeto producto con los datos básicos del producto
+	// Crear objeto producto con los datos básicos del producto
 	let producto = {
 		nombre: nombre,
 		marca: marca,
@@ -29,7 +30,7 @@ export function insertar() {
 		precioVenta: precioVenta,
 		existencias: existencias
 	};
-        // Crear objeto ar con los datos específicos del armazón
+	// Crear objeto ar con los datos específicos del armazón
 	let ar = {
 		producto: producto,
 		modelo: modelo,
@@ -38,12 +39,12 @@ export function insertar() {
 		descripcion: descripcion,
 		fotografia: fotografia
 	};
-        // Convertir objeto ar a una cadena de consulta para enviarlo al servidor
+	// Convertir objeto ar a una cadena de consulta para enviarlo al servidor
 	let rmazon = { datosArmazon: JSON.stringify(ar) };
 
 	let parametros = new URLSearchParams(rmazon);
 
-	fetch('http://localhost:8080/Optik/api/armazon/insertArmazon', {
+	fetch(`${SERVER}/api/armazon/insertArmazon`, {
 		method: 'POST',
 		body: parametros,
 		headers: {
@@ -58,20 +59,18 @@ export function insertar() {
 				return;
 			}
 			mostrarAlerta('success', 'Guardado con exito');
-                        // Obtener todos los productos de armazón de la base de datos y mostrarlos en la página
+			// Obtener todos los productos de armazón de la base de datos y mostrarlos en la página
 			getAll(1);
 			limpiar();
 		});
 }
 
-
 /**
  *   Actualiza un registro de armazón en la base de datos y en la tabla de la vista.
  *   @function
- * 
+ *
  * @returns {void}
  */
-
 
 export function actualizar() {
 	if (validar() == false) {
@@ -115,7 +114,7 @@ export function actualizar() {
 	let rmazon = { datosArmazon: JSON.stringify(ar) };
 
 	let parametros = new URLSearchParams(rmazon);
-	fetch('http://localhost:8080/Optik/api/armazon/actualizararmazon', {
+	fetch(`${SERVER}/api/armazon/actualizararmazon`, {
 		method: 'POST',
 		body: parametros,
 		headers: {
@@ -144,8 +143,7 @@ export function actualizar() {
 export function getAll(estatus) {
 	let datos = { estatus };
 	let parametros = new URLSearchParams(datos);
-
-	fetch('http://localhost:8080/Optik/api/armazon/getAllArmazon', {
+	fetch(`${SERVER}/api/armazon/getAllArmazon`, {
 		method: 'POST',
 		body: parametros,
 		headers: {
@@ -161,7 +159,6 @@ export function getAll(estatus) {
 			}
 		});
 }
-
 
 /**
  * Carga los datos de la tabla de armazones con los datos proporcionados
@@ -222,7 +219,7 @@ export function cargarTablaArmazon(coincidencias, data) {
 }
 
 /**
- * 
+ *
  * @param {int} i - indice del armazon que se va a cargar en el formulario
  * @returns {void}
  */
@@ -283,13 +280,13 @@ export function limpiar() {
 }
 
 /**
- * 
+ *
  * @param {int} i - indice del armazon que se va a eliminar
  * @returns {void}
  */
 export function eliminar(i) {
 	fetch(
-		`http://localhost:8080/Optik/api/armazon/actualizarestatus?idProducto=${i}&estatus=0`
+		`${SERVER}/api/armazon/actualizarestatus?idProducto=${i}&estatus=0`
 	);
 	setTimeout(() => {
 		mostrarAlerta('success', 'Se ha eliminado el armazon');
@@ -297,13 +294,13 @@ export function eliminar(i) {
 	}, 500);
 }
 /**
- * 
+ *
  * @param {int} i - indice del armazon que se va a activar
  * @returns {void}
  */
 export function activar(i) {
 	fetch(
-		`http://localhost:8080/Optik/api/armazon/actualizarestatus?idProducto=${i}&estatus=1`
+		`${SERVER}/api/armazon/actualizarestatus?idProducto=${i}&estatus=1`
 	);
 	setTimeout(() => {
 		mostrarAlerta('success', 'Se ha activado el armazon');
@@ -373,14 +370,14 @@ function mostrarAlerta(icon, mensaje) {
 	});
 }
 /**
-*   Objeto regexValidar para validar diferentes tipos de cadenas.
-*   @typedef {Object} RegexValidar
-*   @property {RegExp} letras - Expresión regular para validar letras, espacios y acentos.
-*   @property {RegExp} numeros - Expresión regular para validar números y puntos.
-*   @property {RegExp} numerosEnteros - Expresión regular para validar números enteros.
-*   @property {RegExp} letrasNumerosSimbolos - 
-*   Expresión regular para validar letras, espacios, acentos, números, puntos, comas, guiones y máximo 240 caracteres.
-*/
+ *   Objeto regexValidar para validar diferentes tipos de cadenas.
+ *   @typedef {Object} RegexValidar
+ *   @property {RegExp} letras - Expresión regular para validar letras, espacios y acentos.
+ *   @property {RegExp} numeros - Expresión regular para validar números y puntos.
+ *   @property {RegExp} numerosEnteros - Expresión regular para validar números enteros.
+ *   @property {RegExp} letrasNumerosSimbolos -
+ *   Expresión regular para validar letras, espacios, acentos, números, puntos, comas, guiones y máximo 240 caracteres.
+ */
 const regexValidar = {
 	//validar letras, espacios y acentos
 	letras: /^[a-zA-ZÀ-ÿ\s]{1,40}$/,

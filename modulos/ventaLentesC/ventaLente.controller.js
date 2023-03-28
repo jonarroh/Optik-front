@@ -2,6 +2,7 @@ let clientes = [];
 let examenVista = [];
 let armazones = [];
 let materiales = [];
+const SERVER = 'https://279d-177-228-33-76.ngrok.io/Optik';
 
 export function inicializarComponentes() {
 	getAllClientes();
@@ -13,17 +14,14 @@ export function getAllClientes() {
 	let datos = { estatus: 1 };
 	let parametros = new URLSearchParams(datos);
 
-	fetch(
-		'http://localhost:8080/Optik/api/restcliente/getAllClientes',
-		{
-			method: 'POST',
-			body: parametros,
-			headers: {
-				'Content-Type':
-					'application/x-www-form-urlencoded;charset=UTF-8'
-			}
+	fetch(`${SERVER}/api/restcliente/getAllClientes`, {
+		method: 'POST',
+		body: parametros,
+		headers: {
+			'Content-Type':
+				'application/x-www-form-urlencoded;charset=UTF-8'
 		}
-	)
+	})
 		.then(response => response.json())
 		.then(data => {
 			if (data.error) {
@@ -81,17 +79,14 @@ export function getAllExamenVista(idCliente) {
 	let datosEv = { estatus: 1 };
 	let parametrosC = new URLSearchParams(datosEv);
 
-	fetch(
-		'http://localhost:8080/Optik/api/examenVista/getAllExamenVista',
-		{
-			method: 'POST',
-			body: parametrosC,
-			headers: {
-				'Content-Type':
-					'application/x-www-form-urlencoded;charset=UTF-8'
-			}
+	fetch(`${SERVER}/api/examenVista/getAllExamenVista`, {
+		method: 'POST',
+		body: parametrosC,
+		headers: {
+			'Content-Type':
+				'application/x-www-form-urlencoded;charset=UTF-8'
 		}
-	)
+	})
 		.then(response => response.json())
 		.then(dataEv => {
 			// alert(JSON.stringify(data));
@@ -134,7 +129,7 @@ export function getAllArmazon() {
 	let datos = { estatus: '1' };
 	let parametros = new URLSearchParams(datos);
 
-	fetch('http://localhost:8080/Optik/api/armazon/getAllArmazon', {
+	fetch(`${SERVER}/api/armazon/getAllArmazon`, {
 		method: 'POST',
 		body: parametros,
 		headers: {
@@ -165,7 +160,7 @@ export function getAllMaterial() {
 	let datos = { estatus: 1 };
 	let params = new URLSearchParams(datos);
 
-	fetch('http://localhost:8080/Optik/api/material/getAll', {
+	fetch(`${SERVER}/api/material/getAll`, {
 		method: 'POST',
 		body: params,
 		headers: {
@@ -245,17 +240,14 @@ venta.addEventListener('click', async () => {
 		JSON.stringify(DetalleVentaPresupuestoLentes)
 	);
 
-	const data = await fetch(
-		'http://localhost:8080/Optik/api/vp/generarVLC',
-		{
-			method: 'POST',
-			body: datosVLC,
-			headers: {
-				'Content-Type':
-					'application/x-www-form-urlencoded;charset=UTF-8'
-			}
+	const data = await fetch(`${SERVER}/api/vp/generarVLC`, {
+		method: 'POST',
+		body: datosVLC,
+		headers: {
+			'Content-Type':
+				'application/x-www-form-urlencoded;charset=UTF-8'
 		}
-	).then(response => response.json());
+	}).then(response => response.json());
 
 	if (data.error) {
 		mostrarAlerta('error', 'Error al generar el presupuesto');

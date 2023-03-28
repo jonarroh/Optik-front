@@ -2,6 +2,7 @@ let productos = [];
 let productosAgregar = [];
 let examenVista = [];
 let lentesContacto = [];
+const SERVER = 'https://279d-177-228-33-76.ngrok.io/Optik';
 
 export function inicializarVentaLentes() {
 	//obtener todos los clientes
@@ -20,17 +21,14 @@ export function getAll() {
 	let datos = { estatus: 1 };
 	let parametros = new URLSearchParams(datos);
 
-	fetch(
-		'http://localhost:8080/Optik/api/restcliente/getAllClientes',
-		{
-			method: 'POST',
-			body: parametros,
-			headers: {
-				'Content-Type':
-					'application/x-www-form-urlencoded;charset=UTF-8'
-			}
+	fetch(`${SERVER}/api/restcliente/getAllClientes`, {
+		method: 'POST',
+		body: parametros,
+		headers: {
+			'Content-Type':
+				'application/x-www-form-urlencoded;charset=UTF-8'
 		}
-	)
+	})
 		.then(response => response.json())
 		.then(data => {
 			if (data.error) {
@@ -56,17 +54,14 @@ export function getAllExamenVista(idCliente) {
 	let datosEv = { estatus: 1 };
 	let parametrosC = new URLSearchParams(datosEv);
 
-	fetch(
-		'http://localhost:8080/Optik/api/examenVista/getAllExamenVista',
-		{
-			method: 'POST',
-			body: parametrosC,
-			headers: {
-				'Content-Type':
-					'application/x-www-form-urlencoded;charset=UTF-8'
-			}
+	fetch(`${SERVER}/api/examenVista/getAllExamenVista`, {
+		method: 'POST',
+		body: parametrosC,
+		headers: {
+			'Content-Type':
+				'application/x-www-form-urlencoded;charset=UTF-8'
 		}
-	)
+	})
 		.then(response => response.json())
 		.then(dataEv => {
 			// alert(JSON.stringify(data));
@@ -110,7 +105,7 @@ export async function tablaLenteC(estatus) {
 			usuario: { lastToken = '' }
 		} = JSON.parse(localStorage.getItem('currentUser'));
 		const response = await fetch(
-			'http://localhost:8080/Optik/api/lenteContacto/getalllente',
+			`${SERVER}/api/lenteContacto/getalllente`,
 			{
 				method: 'POST',
 				headers: {
@@ -272,16 +267,13 @@ export async function guardarVentaLenteContacto() {
 	ventalc.append('datosVentaLc', JSON.stringify(DetalleVentaLC));
 
 	try {
-		const data = await fetch(
-			'http://localhost:8080/Optik/api/vp/ventalc',
-			{
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/x-www-form-urlencoded'
-				},
-				body: ventalc
-			}
-		)
+		const data = await fetch(`${SERVER}/api/vp/ventalc`, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/x-www-form-urlencoded'
+			},
+			body: ventalc
+		})
 			.then(response => response.json())
 			.catch(error => {
 				console.log('error en la peticion');

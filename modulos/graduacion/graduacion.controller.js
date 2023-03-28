@@ -1,4 +1,5 @@
 let graduaciones = [];
+const SERVER = 'https://279d-177-228-33-76.ngrok.io/Optik';
 
 export function insertar() {
 	let esferaod = document.getElementById('eod').value;
@@ -26,7 +27,7 @@ export function insertar() {
 
 	let params = new URLSearchParams(graduacion);
 
-	fetch('http://localhost:8080/Optik/api/graduacion/insertar', {
+	fetch(`${SERVER}/api/graduacion/insertar`, {
 		method: 'POST',
 		headers: {
 			'Content-Type':
@@ -50,7 +51,7 @@ export function getAll() {
 	let datos = { estatus: 1 };
 	let params = new URLSearchParams(datos);
 
-	fetch('http://localhost:8080/Optik/api/graduacion/getAll', {
+	fetch(`${SERVER}/api/graduacion/getAll`, {
 		method: 'POST',
 		body: params,
 		headers: {
@@ -113,7 +114,7 @@ export function getAllIn() {
 	let datos = { estatus: 0 };
 	let params = new URLSearchParams(datos);
 
-	fetch('http://localhost:8080/Optik/api/graduacion/getAllIn', {
+	fetch(`${SERVER}/api/graduacion/getAllIn`, {
 		method: 'POST',
 		body: params,
 		headers: {
@@ -189,7 +190,7 @@ export function actualizar() {
 
 	let params = new URLSearchParams(graduacion);
 
-	fetch('http://localhost:8080/Optik/api/graduacion/actualizar', {
+	fetch(`${SERVER}/api/graduacion/actualizar`, {
 		method: 'POST',
 		body: params,
 		headers: {
@@ -230,7 +231,7 @@ export function eliminar() {
 
 	let param = new URLSearchParams(graduacion);
 
-	fetch('http://localhost:8080/Optik/api/graduacion/eliminar', {
+	fetch(`${SERVER}/api/graduacion/eliminar`, {
 		method: 'POST',
 		body: param,
 		headers: {
@@ -263,7 +264,7 @@ export function activar() {
 
 	let param = new URLSearchParams(graduacion);
 
-	fetch('http://localhost:8080/Optik/api/graduacion/activar', {
+	fetch(`${SERVER}/api/graduacion/activar`, {
 		method: 'POST',
 		body: param,
 		headers: {

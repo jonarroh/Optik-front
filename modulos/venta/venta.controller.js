@@ -7,6 +7,7 @@ let ids = {
 	precioUnitario: [],
 	descuento: []
 };
+const SERVER = 'https://279d-177-228-33-76.ngrok.io/Optik';
 
 export function agregarProducto(indice) {
 	datos +=
@@ -119,19 +120,16 @@ function fillTable(producto) {
 	});
 }
 export async function getAll() {
-	const data = await fetch(
-		'http://localhost:8080/Optik/api/venta/getAllp',
-		{
-			method: 'POST',
-			headers: {
-				'Content-Type':
-					'application/x-www-form-urlencoded;charset=UTF-8'
-			},
-			body: new URLSearchParams({
-				estatus: '1'
-			})
-		}
-	).then(resp => resp.json());
+	const data = await fetch(`${SERVER}/api/venta/getAllp`, {
+		method: 'POST',
+		headers: {
+			'Content-Type':
+				'application/x-www-form-urlencoded;charset=UTF-8'
+		},
+		body: new URLSearchParams({
+			estatus: '1'
+		})
+	}).then(resp => resp.json());
 
 	productos = data;
 	fillTable(productos);
@@ -142,19 +140,16 @@ export async function searchTable() {
 		getAll();
 		return;
 	}
-	const data = await fetch(
-		'http://localhost:8080/Optik/api/venta/find',
-		{
-			method: 'POST',
-			body: new URLSearchParams({
-				filtro: document.querySelector('#buscar').value
-			}),
-			headers: {
-				'Content-Type':
-					'application/x-www-form-urlencoded;charset=UTF-8'
-			}
+	const data = await fetch(`${SERVER}/api/venta/find`, {
+		method: 'POST',
+		body: new URLSearchParams({
+			filtro: document.querySelector('#buscar').value
+		}),
+		headers: {
+			'Content-Type':
+				'application/x-www-form-urlencoded;charset=UTF-8'
 		}
-	)
+	})
 		.then(resp => resp.json())
 		.catch(err => console.log(err));
 
@@ -220,7 +215,7 @@ export async function vender() {
 		datosVentaProducto: JSON.stringify(detalleVentaProducto)
 	});
 
-	const data = fetch('http://localhost:8080/Optik/api/vp/insertar', {
+	const data = fetch(`${SERVER}/api/vp/insertar`, {
 		method: 'POST',
 		headers: {
 			'Content-Type':

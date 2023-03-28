@@ -1,4 +1,5 @@
 let materiales = [];
+const SERVER = 'https://279d-177-228-33-76.ngrok.io/Optik';
 
 export function insertar() {
 	if (validar() == false) {
@@ -18,7 +19,7 @@ export function insertar() {
 
 	let params = new URLSearchParams(material);
 
-	fetch('http://localhost:8080/Optik/api/material/insertar', {
+	fetch(`${SERVER}/api/material/insertar`, {
 		method: 'POST',
 		headers: {
 			'Content-Type':
@@ -41,7 +42,7 @@ export function getAll() {
 	let datos = { estatus: 1 };
 	let params = new URLSearchParams(datos);
 
-	fetch('http://localhost:8080/Optik/api/material/getAll', {
+	fetch(`${SERVER}/api/material/getAll`, {
 		method: 'POST',
 		body: params,
 		headers: {
@@ -63,7 +64,7 @@ export function getInactivos() {
 	let datos = { estatus: 0 };
 	let parametros = new URLSearchParams(datos);
 
-	fetch('http://localhost:8080/Optik/api/material/getAllIn', {
+	fetch(`${SERVER}/api/material/getAllIn`, {
 		method: 'POST',
 		body: parametros,
 		headers: {
@@ -135,7 +136,7 @@ export function actualizar() {
 	let material = { datosMaterial: JSON.stringify(m) };
 	let params = new URLSearchParams(material);
 
-	fetch('http://localhost:8080/Optik/api/material/actualizar', {
+	fetch(`${SERVER}/api/material/actualizar`, {
 		method: 'POST',
 		body: params,
 		headers: {
@@ -177,7 +178,7 @@ export function eliminar(i) {
 
 	let param = new URLSearchParams(material);
 
-	fetch('http://localhost:8080/Optik/api/material/eliminar', {
+	fetch(`${SERVER}/api/material/eliminar`, {
 		method: 'POST',
 		body: param,
 		headers: {
@@ -209,7 +210,7 @@ export function activar(i) {
 
 	let param = new URLSearchParams(material);
 
-	fetch('http://localhost:8080/Optik/api/material/activar', {
+	fetch(`${SERVER}/api/material/activar`, {
 		method: 'POST',
 		body: param,
 		headers: {

@@ -1,4 +1,5 @@
 let clientes = [];
+const SERVER = 'https://279d-177-228-33-76.ngrok.io/Optik';
 
 export function insertar() {
 	let nombre = document.getElementById('txtnombre').value;
@@ -43,7 +44,7 @@ export function insertar() {
 
 	let parametros = new URLSearchParams(cliente);
 
-	fetch('http://localhost:8080/Optik/api/restcliente/insertCliente', {
+	fetch(`${SERVER}/api/restcliente/insertCliente`, {
 		method: 'POST',
 		body: parametros,
 		headers: {
@@ -110,7 +111,8 @@ export function actualizar() {
 
 	let cliente = { datosCliente: JSON.stringify(cli) };
 	let parametros = new URLSearchParams(cliente);
-	fetch('http://localhost:8080/Optik/api/restcliente/updateCliente', {
+
+	fetch(`${SERVER}/api/restcliente/updateCliente`, {
 		method: 'POST',
 		body: parametros,
 		headers: {
@@ -138,17 +140,14 @@ export function getAll() {
 	let datos = { estatus: 1 };
 	let parametros = new URLSearchParams(datos);
 
-	fetch(
-		'http://localhost:8080/Optik/api/restcliente/getAllClientes',
-		{
-			method: 'POST',
-			body: parametros,
-			headers: {
-				'Content-Type':
-					'application/x-www-form-urlencoded;charset=UTF-8'
-			}
+	fetch(`${SERVER}/api/restcliente/getAllClientes`, {
+		method: 'POST',
+		body: parametros,
+		headers: {
+			'Content-Type':
+				'application/x-www-form-urlencoded;charset=UTF-8'
 		}
-	)
+	})
 		.then(response => response.json())
 		.then(data => {
 			if (data.error) {
@@ -163,17 +162,14 @@ export function getAllInactivos() {
 	let datos = { estatus: 0 };
 	let parametros = new URLSearchParams(datos);
 
-	fetch(
-		'http://localhost:8080/Optik/api/restcliente/getAllClientes',
-		{
-			method: 'POST',
-			body: parametros,
-			headers: {
-				'Content-Type':
-					'application/x-www-form-urlencoded;charset=UTF-8'
-			}
+	fetch(`${SERVER}/api/restcliente/getAllClientes`, {
+		method: 'POST',
+		body: parametros,
+		headers: {
+			'Content-Type':
+				'application/x-www-form-urlencoded;charset=UTF-8'
 		}
-	)
+	})
 		.then(response => response.json())
 		.then(data => {
 			if (data.error) {
@@ -351,14 +347,14 @@ export function limpiar() {
 export function eliminar() {
 	const idCliente = document.getElementById('txtidCliente').value;
 	fetch(
-		`http://localhost:8080/Optik/api/restcliente/actualizarestatuscliente?idCliente=${idCliente}&estatus=0`
+		`${SERVER}/api/restcliente/actualizarestatuscliente?idCliente=${idCliente}&estatus=0`
 	);
 	getAll();
 }
 export function activar() {
 	const idCliente = document.getElementById('txtidCliente').value;
 	fetch(
-		`http://localhost:8080/Optik/api/restcliente/actualizarestatuscliente?idCliente=${idCliente}&estatus=1`
+		`${SERVER}/api/restcliente/actualizarestatuscliente?idCliente=${idCliente}&estatus=1`
 	);
 	getAll(0);
 	limpiar();

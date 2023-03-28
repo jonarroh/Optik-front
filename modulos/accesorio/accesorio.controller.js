@@ -1,6 +1,7 @@
 let accesorio = [];
 let accesorioActual = null;
 tablaAccesorio('1');
+const SERVER = 'https://279d-177-228-33-76.ngrok.io/Optik';
 
 function getElements() {
 	return {
@@ -30,7 +31,7 @@ export async function guardar() {
 		})
 	};
 	const response = await fetch(
-		'http://localhost:8080/Optik/api/accesorio/guardar',
+		`${SERVER}/Optik/api/accesorio/guardar`,
 		{
 			method: 'POST',
 			headers: {
@@ -50,16 +51,13 @@ export async function guardar() {
 	limpiarForm();
 }
 export async function tablaAccesorio(estatus) {
-	const response = await fetch(
-		'http://localhost:8080/Optik/api/accesorio/getall',
-		{
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/x-www-form-urlencoded'
-			},
-			body: new URLSearchParams({ estatus: estatus })
-		}
-	);
+	const response = await fetch(`${SERVER}/api/accesorio/getall`, {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/x-www-form-urlencoded'
+		},
+		body: new URLSearchParams({ estatus: estatus })
+	});
 	const data = await response.json();
 	if (data.error) {
 		alert(data.error);
@@ -152,16 +150,13 @@ export async function updateAccesorio() {
 		})
 	};
 
-	const response = await fetch(
-		'http://localhost:8080/Optik/api/accesorio/update',
-		{
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/x-www-form-urlencoded'
-			},
-			body: new URLSearchParams(datosAccesorio)
-		}
-	);
+	const response = await fetch(`${SERVER}/api/accesorio/update`, {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/x-www-form-urlencoded'
+		},
+		body: new URLSearchParams(datosAccesorio)
+	});
 	const data = await response.json();
 	if (data.error) {
 		mostrarAlerta(
@@ -206,18 +201,15 @@ export function realizarBusqueda() {
 }
 
 export async function eliminarAccesorio(index) {
-	const response = await fetch(
-		'http://localhost:8080/Optik/api/accesorio/delete',
-		{
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/x-www-form-urlencoded'
-			},
-			body: new URLSearchParams({
-				idProducto: index
-			})
-		}
-	);
+	const response = await fetch(`${SERVER}/api/accesorio/delete`, {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/x-www-form-urlencoded'
+		},
+		body: new URLSearchParams({
+			idProducto: index
+		})
+	});
 	const data = await response.json();
 	if (data.error) {
 		mostrarAlerta(
@@ -231,18 +223,15 @@ export async function eliminarAccesorio(index) {
 }
 
 export async function activarAccesorio(index) {
-	const response = await fetch(
-		'http://localhost:8080/Optik/api/accesorio/activate',
-		{
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/x-www-form-urlencoded'
-			},
-			body: new URLSearchParams({
-				idProducto: index
-			})
-		}
-	);
+	const response = await fetch(`${SERVER}/api/accesorio/activate`, {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/x-www-form-urlencoded'
+		},
+		body: new URLSearchParams({
+			idProducto: index
+		})
+	});
 	const data = await response.json();
 	if (data.error) {
 		mostrarAlerta('error', 'no se pudo activar el lente de contacto');

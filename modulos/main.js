@@ -1,3 +1,5 @@
+const SERVER = 'https://279d-177-228-33-76.ngrok.io/Optik';
+
 let ma,
 	mg = null;
 let ml = null;
@@ -119,18 +121,15 @@ async function cerrarSesion() {
 		window.location.replace('../');
 	}
 	NProgress.start();
-	const data = await fetch(
-		'http://localhost:8080/Optik/api/login/logout',
-		{
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/x-www-form-urlencoded'
-			},
-			body: new URLSearchParams({
-				datosUsuario: currentUser
-			})
-		}
-	).then(resp => resp.json());
+	const data = await fetch(`${SERVER}/api/login/logout`, {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/x-www-form-urlencoded'
+		},
+		body: new URLSearchParams({
+			datosUsuario: currentUser
+		})
+	}).then(resp => resp.json());
 	if (data.response) {
 		localStorage.setItem('vistaActual', '');
 		localStorage.setItem('currentUser', '');
