@@ -2,7 +2,7 @@
 	"rewrites": [
 		{
 			"source": "/modulos/(.*)",
-			"destination": "/index.html"
+			"destination": "/modulos/index.html"
 		}
 	]
 }
