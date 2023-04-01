@@ -23,7 +23,11 @@ login.addEventListener('click', async function () {
 		},
 		body: new URLSearchParams(datos)
 	});
-	const data = await response.json();
+	const data = await response.json().catch(error => {
+		login.classList.remove('is-loading');
+		mostrarAlerta('error', 'Usuario o contraseña incorrectos');
+		return;
+	});
 	console.log(data);
 	if (data.error) {
 		login.classList.remove('is-loading');
@@ -33,7 +37,18 @@ login.addEventListener('click', async function () {
 	//agregar en el localstorage el token
 	localStorage.setItem('currentUser', JSON.stringify(data));
 	localStorage.setItem('vistaActual', 'inicio');
-	window.location.href = 'modulos/';
+	//traer el index.html de modulos y mostrarlo en index.html principal
+	const response2 = await fetch('modulos/index.html');
+	const data2 = await response2.text();
+	document.getElementById('web').innerHTML = data2;
+	//cagar el script NProgress que esta en la carpeta js
+	const script2 = document.createElement('script');
+	script2.src = 'js/nprogress.js';
+	document.body.appendChild(script2);
+	//cargar el script de modulos
+	const script = document.createElement('script');
+	script.src = 'modulos/main.js';
+	document.body.appendChild(script);
 });
 
 function mostrarAlerta(icon, mensaje) {

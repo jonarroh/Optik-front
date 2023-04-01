@@ -20,11 +20,11 @@ venta.addEventListener('click', () => {
 
 const cambiarVenta = async () => {
 	NProgress.start();
-	const res = await fetch('./venta/index.html');
+	const res = await fetch('./modulos/venta/index.html');
 	const data = await res.text();
 	document.getElementById('app').innerHTML = data;
 	//cargar el script de venta.controller.js con un import dinamico
-	const obj = await import('./venta/venta.controller.js');
+	const obj = await import('/modulos/venta/venta.controller.js');
 	mv = obj;
 	mv.getAll();
 	// ma = obj;
@@ -40,11 +40,13 @@ empleado.addEventListener('click', () => {
 });
 const cambiarEmpleado = async () => {
 	NProgress.start();
-	const res = await fetch('./empleado/index.html');
+	const res = await fetch('./modulos/empleado/index.html');
 	const data = await res.text();
 	document.getElementById('app').innerHTML = data;
 	//cargar el script de empleado.controller.js con un import dinamico
-	const obj = await import('./empleado/empleado.controller.js');
+	const obj = await import(
+		'/modulos/empleado/empleado.controller.js'
+	);
 	ma = obj;
 	ma.tablaEmpleado('1');
 	NProgress.done();
@@ -59,12 +61,12 @@ lenteContacto.addEventListener('click', () => {
 const cambiarLenteContacto = async () => {
 	NProgress.start();
 	//cargamos el html de lenteContacto en el div app
-	const res = await fetch('./lenteContacto/index.html');
+	const res = await fetch('./modulos/lenteContacto/index.html');
 	const data = await res.text();
 	document.getElementById('app').innerHTML = data;
 	//cargar el script de lenteContacto.controller.js con un import dinamico cada vez que se cambie de vista
 	const obj = await import(
-		'./lenteContacto/lenteContacto.controller.js'
+		'/modulos/lenteContacto/lenteContacto.controller.js'
 	);
 	ml = obj;
 	ml.tablaLenteC('1');
@@ -80,11 +82,13 @@ accesorio.addEventListener('click', () => {
 const cambiarAccesorio = async () => {
 	NProgress.start();
 	//cargamos el html de accesorio en el div app
-	const res = await fetch('./accesorio/index.html');
+	const res = await fetch('./modulos/accesorio/index.html');
 	const data = await res.text();
 	document.getElementById('app').innerHTML = data;
 	//cargar el script de accesorio.controller.js con un import dinamico cada vez que se cambie de vista
-	const obj = await import('./accesorio/accesorio.controller.js');
+	const obj = await import(
+		'/modulos/accesorio/accesorio.controller.js'
+	);
 	mac = obj;
 	mac.tablaAccesorio('1');
 	NProgress.done();
@@ -99,11 +103,11 @@ armazon.addEventListener('click', () => {
 const cambiarArmazon = async () => {
 	NProgress.start();
 	//cargamos el html de armazon en el div app
-	const res = await fetch('./armazon/index.html');
+	const res = await fetch('./modulos/armazon/index.html');
 	const data = await res.text();
 	document.getElementById('app').innerHTML = data;
 	//cargar el script de armazon.controller.js con un import dinamico cada vez que se cambie de vista
-	const obj = await import('./armazon/armazon.controller.js');
+	const obj = await import('/modulos/armazon/armazon.controller.js');
 	mar = obj;
 	mar.getAll(1);
 	NProgress.done();
@@ -143,11 +147,13 @@ material.addEventListener('click', () => {
 });
 const cambiarMaterial = async () => {
 	NProgress.start();
-	const res = await fetch('./material/index.html');
+	const res = await fetch('./modulos/material/index.html');
 	const data = await res.text();
 	document.getElementById('app').innerHTML = data;
 	//cargar el script de material.controller.js con un import dinamico
-	const obj = await import('./material/material.controller.js');
+	const obj = await import(
+		'/modulos/material/material.controller.js'
+	);
 	mm = obj;
 	mm.getAll();
 	NProgress.done();
@@ -161,11 +167,13 @@ examenVista.addEventListener('click', () => {
 });
 const cambiarExamenVista = async () => {
 	NProgress.start();
-	const res = await fetch('./examenVista/index.html');
+	const res = await fetch('./modulos/examenVista/index.html');
 	const data = await res.text();
 	document.getElementById('app').innerHTML = data;
 	//cargar el script de examenVista.controller.js con un import dinamico
-	const obj = await import('./examenVista/examenVista.controller.js');
+	const obj = await import(
+		'/modulos/examenVista/examenVista.controller.js'
+	);
 	mev = obj;
 	mev.inicializar();
 	NProgress.done();
@@ -179,12 +187,12 @@ compraProducto.addEventListener('click', () => {
 });
 const cambiarCompraProducto = async () => {
 	NProgress.start();
-	const res = await fetch('./compraProducto/index.html');
+	const res = await fetch('./modulos/compraProducto/index.html');
 	const data = await res.text();
 	document.getElementById('app').innerHTML = data;
 	//cargar el script de compraProducto.controller.js con un import dinamico
 	const obj = await import(
-		'./compraProducto/compraProducto.controller.js'
+		'/modulos/compraProducto/compraProducto.controller.js'
 	);
 	mcp = obj;
 	mcp.inicializar();
@@ -199,11 +207,13 @@ graduacion.addEventListener('click', () => {
 });
 const cambiarGraduacion = async () => {
 	NProgress.start();
-	const res = await fetch('./graduacion/index.html');
+	const res = await fetch('./modulos/graduacion/index.html');
 	const data = await res.text();
 	document.getElementById('app').innerHTML = data;
 	//cargar el script de graduacion.controller.js con un import dinamico
-	const obj = await import('./graduacion/graduacion.controller.js');
+	const obj = await import(
+		'/modulos/graduacion/graduacion.controller.js'
+	);
 	mg = obj;
 	mg.getAll();
 	NProgress.done();
@@ -217,11 +227,11 @@ cliente.addEventListener('click', () => {
 });
 const cambiarCliente = async () => {
 	NProgress.start();
-	const res = await fetch('./cliente/index.html');
+	const res = await fetch('./modulos/cliente/index.html');
 	const data = await res.text();
 	document.getElementById('app').innerHTML = data;
 	//cargar el script de cliente.controller.js con un import dinamico
-	const obj = await import('./cliente/cliente.controller.js');
+	const obj = await import('/modulos/cliente/cliente.controller.js');
 	mc = obj;
 	mc.getAll();
 	NProgress.done();
@@ -237,7 +247,7 @@ const cambiarHome = async () => {
 	NProgress.start();
 	//guardar en el localstorage la vista actual
 	localStorage.setItem('vistaActual', 'inicio');
-	const res = await fetch('./inicio/index.html');
+	const res = await fetch('/modulos/inicio/index.html');
 	const data = await res.text();
 	document.getElementById('app').innerHTML = data;
 	NProgress.done();
@@ -250,11 +260,13 @@ ventaL.addEventListener('click', () => {
 
 const cambiarVentaL = async () => {
 	NProgress.start();
-	const res = await fetch('./ventaLentes/index.html');
+	const res = await fetch('./modulos/ventaLentes/index.html');
 	const data = await res.text();
 	document.getElementById('app').innerHTML = data;
 	//cargar el script de ventaLentes.controller.js con un import dinamico
-	const obj = await import('./ventaLentes/ventaL.controller.js');
+	const obj = await import(
+		'/modulos/ventaLentes/ventaL.controller.js'
+	);
 	mv = obj;
 	mv.inicializarVentaLentes();
 	NProgress.done();
@@ -269,11 +281,13 @@ ventaLC.addEventListener('click', () => {
 
 const cambiarVentaLC = async () => {
 	NProgress.start();
-	const res = await fetch('./ventaLentesC/index.html');
+	const res = await fetch('./modulos/ventaLentesC/index.html');
 	const data = await res.text();
 	document.getElementById('app').innerHTML = data;
 	//cargar el script de ventaLentesC.controller.js con un import dinamico
-	const obj = await import('./ventaLentesC/ventaLente.controller.js');
+	const obj = await import(
+		'/modulos/ventaLentesC/ventaLente.controller.js'
+	);
 	mv = obj;
 	mv.inicializarComponentes();
 	NProgress.done();

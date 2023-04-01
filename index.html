@@ -15,120 +15,122 @@
 		/>
 	</head>
 	<body class="has-background-info">
-		<style>
-			body {
-				margin: 0;
-				font: normal 75% Arial, Helvetica, sans-serif;
-			}
-			canvas {
-				display: block;
-				vertical-align: bottom;
-			} /* ---- particles.js container ---- */
-			#particles-js {
-				position: absolute;
-				width: 100%;
-				height: 100%;
-				background-color: #3e8ed0;
-				background-image: url('');
-				background-repeat: no-repeat;
-				background-size: cover;
-				background-position: 50% 50%;
-			} /* ---- stats.js ---- */
-			.count-particles {
-				background: #000022;
-				position: absolute;
-				top: 48px;
-				left: 0;
-				width: 80px;
-				color: #13e8e9;
-				font-size: 0.8em;
-				text-align: left;
-				text-indent: 4px;
-				line-height: 14px;
-				padding-bottom: 2px;
-				font-family: Helvetica, Arial, sans-serif;
-				font-weight: bold;
-			}
-			.js-count-particles {
-				font-size: 1.1em;
-			}
-			#stats,
-			.count-particles {
-				-webkit-user-select: none;
-				margin-top: 5px;
-				margin-left: 5px;
-			}
-			#stats {
-				border-radius: 3px 3px 0 0;
-				overflow: hidden;
-			}
-			.count-particles {
-				border-radius: 0 0 3px 3px;
-			}
-		</style>
-		<!-- <div id="app" style="padding-left: 20px; padding-right: 20px" class="panel">
-			<main style="height: 100vh;" class="flex2">
-				<div class="container is-max-desktop">
-					
-			</main>
-		</div> -->
-		<section>
-			<div class="login">
-				<div class="card">
-					<header class="card-header">
-						<p class="card-header-title">
-							<span class="qua1">QUA</span
-							><span class="lite1">lite</span>
-						</p>
-					</header>
-					<div class="card-content">
-						<div class="content">
-							<label class="label has-text-black"
-								>Nombre de Usuario</label
-							>
-							<div class="control has-icons-left">
-								<input
-									name="nombre"
-									id="nombre"
-									class="input"
-									type="text"
-									placeholder="Nombre de Usuario"
-								/>
-								<span class="icon is-left pt-1">
-									<icon-person></icon-person>
-								</span>
-							</div>
+		<div id="web">
+			<style>
+				body {
+					margin: 0;
+					font: normal 75% Arial, Helvetica, sans-serif;
+				}
+				canvas {
+					display: block;
+					vertical-align: bottom;
+				} /* ---- particles.js container ---- */
+				#particles-js {
+					position: absolute;
+					width: 100%;
+					height: 100%;
+					background-color: #3e8ed0;
+					background-image: url('');
+					background-repeat: no-repeat;
+					background-size: cover;
+					background-position: 50% 50%;
+				} /* ---- stats.js ---- */
+				.count-particles {
+					background: #000022;
+					position: absolute;
+					top: 48px;
+					left: 0;
+					width: 80px;
+					color: #13e8e9;
+					font-size: 0.8em;
+					text-align: left;
+					text-indent: 4px;
+					line-height: 14px;
+					padding-bottom: 2px;
+					font-family: Helvetica, Arial, sans-serif;
+					font-weight: bold;
+				}
+				.js-count-particles {
+					font-size: 1.1em;
+				}
+				#stats,
+				.count-particles {
+					-webkit-user-select: none;
+					margin-top: 5px;
+					margin-left: 5px;
+				}
+				#stats {
+					border-radius: 3px 3px 0 0;
+					overflow: hidden;
+				}
+				.count-particles {
+					border-radius: 0 0 3px 3px;
+				}
+			</style>
+			<!-- <div id="app" style="padding-left: 20px; padding-right: 20px" class="panel">
+				<main style="height: 100vh;" class="flex2">
+					<div class="container is-max-desktop">
+						
+				</main>
+			</div> -->
+			<section>
+				<div class="login">
+					<div class="card">
+						<header class="card-header">
+							<p class="card-header-title">
+								<span class="qua1">QUA</span
+								><span class="lite1">lite</span>
+							</p>
+						</header>
+						<div class="card-content">
+							<div class="content">
+								<label class="label has-text-black"
+									>Nombre de Usuario</label
+								>
+								<div class="control has-icons-left">
+									<input
+										name="nombre"
+										id="nombre"
+										class="input"
+										type="text"
+										placeholder="Nombre de Usuario"
+									/>
+									<span class="icon is-left pt-1">
+										<icon-person></icon-person>
+									</span>
+								</div>
 
-							<label class="label has-text-black">Contraseña</label>
-							<div class="control has-icons-left">
-								<input
-									name="contrasenia"
-									id="contrasenia"
-									class="input"
-									type="password"
-									placeholder="Contraseña"
-								/>
-								<span class="icon is-left pt-1">
-									<icon-lock></icon-lock>
-								</span>
+								<label class="label has-text-black">Contraseña</label>
+								<div class="control has-icons-left">
+									<input
+										name="contrasenia"
+										id="contrasenia"
+										class="input"
+										type="password"
+										placeholder="Contraseña"
+									/>
+									<span class="icon is-left pt-1">
+										<icon-lock></icon-lock>
+									</span>
+								</div>
 							</div>
 						</div>
+						<footer
+							class="card-footer is-flex is-justify-content-center is-align-content-center"
+						>
+							<div align="center" class="m-5">
+								<button
+									class="button is-success is-medium is-fullwidth"
+									id="login"
+								>
+									Ingresar
+								</button>
+							</div>
+						</footer>
 					</div>
-					<footer
-						class="card-footer is-flex is-justify-content-center is-align-content-center"
-					>
-						<div align="center" class="m-5">
-							<button
-								class="button is-success is-medium is-fullwidth"
-								id="login"
-							>
-								Ingresar
-							</button>
-						</div>
-					</footer>
 				</div>
-			</div>
-		</section>
+			</section>
+		</div>
 
 		<div id="particles-js"></div>
 
