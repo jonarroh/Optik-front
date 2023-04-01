@@ -1,8 +1,8 @@
 {
 	"rewrites": [
 		{
-			"source": "/modulos/:ruta*",
-			"destination": "/modulos/:ruta*"
+			"source": "/modulos/(.*)",
+			"destination": "/index.html"
 		}
 	]
 }

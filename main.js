@@ -43,11 +43,14 @@ login.addEventListener('click', async function () {
 	document.getElementById('web').innerHTML = data2;
 	//cagar el script NProgress que esta en la carpeta js
 	const script2 = document.createElement('script');
-	script2.src = 'js/nprogress.js';
+	script2.src = '/js/nprogress.js';
 	document.body.appendChild(script2);
+	//eliminar particles.js
+	document.getElementById('particles-js').remove();
+
 	//cargar el script de modulos
 	const script = document.createElement('script');
-	script.src = 'modulos/main.js';
+	script.src = '/modulos/main.js';
 	document.body.appendChild(script);
 });
 
