@@ -1,4 +1,4 @@
-const SERVER = 'https://279d-177-228-33-76.ngrok.io/Optik';
+const SERVER = ' https://bb29-177-228-33-148.ngrok.io/Optik';
 
 const login = document.getElementById('login');
 login.addEventListener('click', async function () {

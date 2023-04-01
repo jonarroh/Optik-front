@@ -1,7 +1,7 @@
 let accesorio = [];
 let accesorioActual = null;
 tablaAccesorio('1');
-const SERVER = 'https://279d-177-228-33-76.ngrok.io/Optik';
+const SERVER = ' https://bb29-177-228-33-148.ngrok.io/Optik';
 
 function getElements() {
 	return {

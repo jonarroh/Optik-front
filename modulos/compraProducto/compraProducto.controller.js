@@ -1,6 +1,6 @@
 let compras;
 let comprasI;
-const SERVER = 'https://279d-177-228-33-76.ngrok.io/Optik';
+const SERVER = ' https://bb29-177-228-33-148.ngrok.io/Optik';
 export function insertar() {
 	let idEmpleado = document.getElementById('selectEmpleado').value;
 	let idProducto = document.getElementById('selectProducto').value;
